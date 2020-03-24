@@ -1,17 +1,19 @@
 // Verifica del funzionamento delle Categorie
 
 describe("HomePage", function () {
-  beforeEach(function () {
-    it("Visit HomePage - it successfully loads", function () {
-      // cy.visit("localhost:3005/"); // url da visitare
-      // cy.url().should("include", "localhost:3005");
-      // cy.visit("https://www.shop-o-rama.it/"); // url da visitare
-      // cy.url().should("include", "www.shop-o-rama.it");
-      // cy.visit("https://sor-fe-staging.herokuapp.com/"); // url da visitare
-      // cy.url().should("include", "sor-fe-staging.herokuapp.com/");
-      cy.visit("/");
-    });
+  // beforeEach(function () {
+  it("Visit HomePage - it successfully loads", function () {
+    // cy.visit("localhost:3005/"); // url da visitare
+    // cy.url().should("include", "localhost:3005");
+    // cy.visit("https://www.shop-o-rama.it/"); // url da visitare
+    // cy.url().should("include", "www.shop-o-rama.it");
+    // cy.visit("https://sor-fe-staging.herokuapp.com/"); // url da visitare
+    // cy.url().should("include", "sor-fe-staging.herokuapp.com/");
+    cy.visit("/")
+    cy.wait(2000);
+    // });
   });
+
 
   // Chiusura del Banner policy
 
@@ -25,7 +27,7 @@ describe("HomePage", function () {
 describe("Root Categories", function () {
   it("Abbigliamento e Accessori", function () {
     cy.contains("Abbigliamento e accessori").click({ force: true });
-    cy.wait(2000);
+    cy.wait(10000);
     cy.url().should("include", "/categorie/abbigliamento-e-accessori");
   });
 
@@ -83,4 +85,3 @@ describe("Root Categories", function () {
     cy.url().should("include", "/idee-regalo");
   });
 });
-1
