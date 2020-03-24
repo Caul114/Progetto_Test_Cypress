@@ -11,5 +11,11 @@ describe("HomePage", function () {
                 .find('[data-test="ProductsList__0"]')
                 .click({ force: true });
         });
+        it("Prodotto 2", function () {
+            cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+            cy.get('[data-test="featured-product"]')
+                .find('[data-test="ProductsList__1"]')
+                .click({ force: true });
+        });
     });
 });
