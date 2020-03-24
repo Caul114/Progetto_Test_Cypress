@@ -17,7 +17,7 @@ $ git clone https://github.com/Caul114/Progetto_Test_Cypress.git
 
 3. Posizionarsi all'interno del progetto scaricato:
 
-$ cd thecraft_ITEST\
+$ cd Progetto_Test_Cypress\
 
 
 4. Lanciare per la prima volta il progetto (occorre attendere che vengano create le dipendenze e che una volta terminate le verifiche si apra la finestra di lavoro di Cypress)
