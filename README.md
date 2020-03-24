@@ -34,6 +34,6 @@ $ git pull
 
 Le sezioni che si possono provare in questo momento (basta un click dalla finestra di Cypress):
 
-..\thecraft_ITEST\cypress\integration\Test sul Sito\TestPlan1\4. Navigation\Homepage_DataTest_Staging_Desktop.js
-..\thecraft_ITEST\cypress\integration\Test sul Sito\TestPlan1\4. Navigation\Homepage_DataTest_Staging_Mobile.js
-..\thecraft_ITEST\cypress\integration\Test sul Sito\TestPlan2\2.1 Registrazione Buyer\Prova_Mobile.js
+..\Progetto_Test_Cypress\cypress\integration\Test sul Sito\TestPlan1\4. Navigation\Homepage_DataTest_Staging_Desktop.js
+..\Progetto_Test_Cypress\cypress\integration\Test sul Sito\TestPlan1\4. Navigation\Homepage_DataTest_Staging_Mobile.js
+..\Progetto_Test_Cypress\cypress\integration\Test sul Sito\TestPlan2\2.1 Registrazione Buyer\Prova_Mobile.js
