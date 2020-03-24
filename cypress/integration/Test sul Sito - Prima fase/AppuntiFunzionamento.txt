@@ -1,0 +1,141 @@
+Codice accesso 
+
+$ cypress run --record --key 3e889b53-ce06-478b-b49a-f9d327e92781
+
+
+Come creare unp spazio Cypress
+
+1. Entrare nella cartella su cui caricare Cypress
+$ cd /your/project/path
+
+2. Installare Cypress
+$ npm install cypress --save-dev
+
+3. Aprire Cypress
+$ ./node_modules/.bin/cypress open
+oppure
+$ npx cypress open
+
+4. Implementare primo test
+$ entra in /cypress/integration
+$ touch samples_spec.js
+
+5. Codice primo test
+
+describe('My First Test', function() {
+  it('Does not do much!', function() {
+    expect(true).to.equal(true)
+  })
+})
+
+6. Test Reale
+    1. Visita una pagina reale: https://docs.cypress.io/examples/examples/applications.html#Kitchen-Sink
+        describe('My First Test', function() {
+        it('Visits the Kitchen Sink', function() {
+            cy.visit('https://example.cypress.io')
+        })
+        })
+
+    2. Visita alla pagina, che contenga type, e il cui url corrisponda
+      describe('My First Test', function() {
+      it('Click the link Type', function() {
+        cy.visit('https://example.cypress.io')
+
+        cy.contains('type').click()
+
+        // Should be a new URL which includes '/commands/actions'
+        cy.url().should('include', '/commands/actions')
+      })
+      })
+
+7. Test interessante
+describe('My First Test', function() {
+  it('Click the link Type', function() {
+    cy.visit('https://example.cypress.io')
+
+    cy.contains('type').click()
+
+    // Should be a new URL which includes '/commands/actions'
+    cy.url().should('include', '/commands/actions')
+
+    cy.get('.action-email')
+    .type('fake@email.com')
+    .should('have.value', 'fake@email.com')
+  })
+})
+
+In the Given, When, Then syntax:
+
+Given a user visits https://example.cypress.io
+When they click the link labeled type
+And they type “fake@email.com“ into the .actions-email input
+Then the URL should include /commands/actions
+And the .actions-email input has “fake@email.com“ as its value
+
+Un dato utente visita https://example.cypress.io
+Quando fanno clic sul link con l'etichetta
+E digitano "fake@email.com" nell'input di .actions-email
+Quindi l'URL dovrebbe includere / comandi / azioni
+E l'input .actions-email ha "fake@email.com" come valore
+
+8. Aggiunta di cy.pause()
+describe('My First Test', function() {
+  it('clicking "type" shows the right headings', function() {
+    cy.visit('https://example.cypress.io')
+
+    cy.pause()
+
+    cy.contains('type').click()
+
+    // Should be on a new URL which includes '/commands/actions'
+    cy.url().should('include', '/commands/actions')
+
+    // Get an input, type into it and verify that the value has been updated
+    cy.get('.action-email')
+      .type('fake@email.com')
+      .should('have.value', 'fake@email.com')
+  })
+})
+
+
+9. Test generico
+
+describe('Post Resource', function() {
+  it('Creating a New Post', function() {
+    cy.visit('/posts/new')     // 1.
+
+    cy.get('input.post-title') // 2.
+      .type('My First Post')   // 3.
+
+    cy.get('input.post-body')  // 4.
+      .type('Hello, world!')   // 5.
+
+    cy.contains('Submit')      // 6.
+      .click()                 // 7.
+
+    cy.url()                   // 8.
+      .should('include', '/posts/my-first-post')
+
+    cy.get('h1')               // 9.
+      .should('contain', 'My First Post')
+  })
+})
+
+Visit the page at /posts/new.
+1. Find the <input> with class post-title.
+2. Type “My First Post” into it.
+3. Find the <input> with class post-body.
+4. Type “Hello, world!” into it.
+Find the element containing the text Submit.
+Click it.
+Grab the browser URL, ensure it includes /posts/my-first-post.
+Find the h1 tag, ensure it contains the text “My First Post”.
+    Visita la pagina all'indirizzo / posts / new.
+    Trova <input> con la classe post-titolo.
+    Digita "My First Post" in esso.
+    Trova <input> con classe post-body.
+    Scrivi "Ciao, mondo!".
+    Trova l'elemento che contiene il testo Invia.
+    Cliccalo.
+    Prendi l'URL del browser, assicurati che includa / posts / my-first-post.
+    Trova il tag h1, assicurati che contenga il testo "My First Post".

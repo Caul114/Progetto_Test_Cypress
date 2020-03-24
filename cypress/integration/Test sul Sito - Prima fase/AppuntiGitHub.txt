@@ -1,0 +1,5 @@
+Come pushare:
+
+$ git add .
+$ git commit -m "primo commit"
+$ git push

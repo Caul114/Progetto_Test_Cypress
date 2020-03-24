@@ -1,0 +1,3 @@
+Data-test
+
+- Featured-categories: data-test={`FeaturedCategory_${cat.slug}`}

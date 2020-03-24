@@ -1,0 +1,31 @@
+Elenco dei Test Automatici da Creare:
+
+- Test link HomePage Desktop                     fatto
+- Test link HomePage Mobile                      fatto
+
+
+- Test link prodotti Mobile
+- Test link prodotti Desktop
+
+- Test link Magazine Mobile
+- Test link Magazine Desktop
+
+- Test link Idee regalo Mobile
+- Test link Idee regalo Desktop
+
+
+- Test per Accesso Buyer/Seller Mobile   
+- Test per Accesso Buyer/Seller Desktop     
+
+- Test per creazione Buyer Mobile
+- Test per creazione Buyer Desktop
+
+- Test per creazione Seller e prodotti Mobile
+- Test per creazione Seller e prodotti Desktop
+
+
+- Test Messaggi Mobile
+- Test Messaggi Desktop
+
+- Test Ciclo degli Ordini Mobile
+- Test Ciclo degli Ordini Desktop
