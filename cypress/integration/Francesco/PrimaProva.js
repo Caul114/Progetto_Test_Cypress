@@ -26,5 +26,23 @@ describe("HomePage", function () {
           ]);
         });
       });
+      context("Actions", () => {
+        beforeEach(()=>{
+            cy.visit("https://example.cypress.io/commands/actions");
+        });
+        it(".select() - select an option in action <select> element", () =>{
+            cy.get(".action-select").select("short");
+
+            cy.get(".action-select-multiple").select(["short", "blue jeans", "heat"])
+        
+            cy.get(".action-select").select("fr-short");
+
+            cy.get(".action-select-multiple").select([
+                "fr-short",
+                "fr-blue-jeans",
+                "fr-heat"
+        ]);
+        });
+      });
       
 });
