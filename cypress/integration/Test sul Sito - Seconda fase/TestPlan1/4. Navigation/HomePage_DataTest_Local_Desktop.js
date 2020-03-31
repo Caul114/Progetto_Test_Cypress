@@ -6,15 +6,15 @@ describe("HomePage", function () {
     });
 
     // Chiusura del Banner policy
-
     it("Chiusura Banner Privacy", function () {
         cy.get('[data-test="close_cookie"]').click({ force: true });
+        cy.wait(5000);
     });
 });
 
 // Verifica del funzionamento delle Categorie
 
-describe("Root of categories", function () { // tour delle categorie del menu principale
+describe("Root of categories", function () {
     it("Abbigliamento e Accessori", function () {
         cy.get('[data-test="category-0"]').click({ force: true });
         cy.url().should("include", "/categorie/abbigliamento-e-accessori");
@@ -59,18 +59,18 @@ describe("Root of categories", function () { // tour delle categorie del menu pr
 // Verifica del funzionamento del Top Banner
 
 describe("Top Banner", function () {
+    beforeEach(() => {
+        cy.visit("/");
+        cy.wait(1000);
+    });
+
     it("Left Picture", function () {
-        cy.get('[data-test="LogoLink_Header"]').click({ force: true });
         cy.get('[data-test="head_header_button_search"]').click({ force: true });
+        cy.url().should("include", "prodotto");
     });
 
     it("Center Picture", function () {
-        cy.get('[data-test="LogoLink_Header"]').click({ force: true });
         cy.get('[data-test="button_center_picture"]').click({ force: true });
-    });
-
-    it("Right Picture", function () {
-        cy.get('[data-test="LogoLink_Header"]').click({ force: true });
-        cy.get('[data-test="right_picture"]').click({ force: true });
+        cy.url().should("include", "negozio");
     });
 });
