@@ -25,23 +25,33 @@ describe("Root of categories", function () {
         cy.url().should("include", "/categorie/gioielli");
     });
 
-    it("Arredamento", function () {
+    it("Benessere", function () {
         cy.get('[data-test="category-2"]').click({ force: true });
+        cy.url().should("include", "/categorie/benessere");
+    });
+
+    it("Arredamento", function () {
+        cy.get('[data-test="category-3"]').click({ force: true });
         cy.url().should("include", "/categorie/arredamento");
     });
 
     it("Arte", function () {
-        cy.get('[data-test="category-3"]').click({ force: true });
+        cy.get('[data-test="category-4"]').click({ force: true });
         cy.url().should("include", "/categorie/arte");
     });
 
     it("Tempo libero", function () {
-        cy.get('[data-test="category-4"]').click({ force: true });
+        cy.get('[data-test="category-5"]').click({ force: true });
         cy.url().should("include", "/categorie/tempo-libero");
     });
 
+    it("Infanzia", function () {
+        cy.get('[data-test="category-6"]').click({ force: true });
+        cy.url().should("include", "/categorie/infanzia");
+    });
+
     it("Alimentari", function () {
-        cy.get('[data-test="category-5"]').click({ force: true });
+        cy.get('[data-test="category-7"]').click({ force: true });
         cy.url().should("include", "categorie/alimentari");
     });
 
@@ -61,12 +71,12 @@ describe("Root of categories", function () {
 describe("Top Banner", function () {
     beforeEach(() => {
         cy.visit("/");
-        cy.wait(1000);
+        cy.wait(5000);
     });
 
     it("Left Picture", function () {
         cy.get('[data-test="head_header_button_search"]').click({ force: true });
-        cy.url().should("include", "prodotto");
+        cy.url().should("include", "prodotti");
     });
 
     it("Center Picture", function () {
