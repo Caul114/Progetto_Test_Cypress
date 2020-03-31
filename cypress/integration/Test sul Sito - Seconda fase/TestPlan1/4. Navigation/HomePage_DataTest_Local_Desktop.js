@@ -2,13 +2,41 @@ describe("HomePage", function () {
     it("Visit HomePage", function () {
         cy.visit("http://localhost:3005/"); // url da visitare
         cy.url().should("include", "localhost:3005");
-        cy.contains("Italiano").click({ force: true }); // lingua italiana
     });
 
     // Chiusura del Banner policy
     it("Chiusura Banner Privacy", function () {
         cy.get('[data-test="close_cookie"]').click({ force: true });
         cy.wait(5000);
+    });
+});
+
+describe("Primary Header", function () {
+    beforeEach(() => {
+        cy.visit("/");
+        cy.url().should("include", "localhost:3005");
+        cy.wait(2000);
+    });
+
+    it("Logo Shop-o-rama", function () {
+        cy.get('[data-test="LogoLink_Header"]').click({ force: true }); // Logo di Shop-o-rama
+        cy.url().should("include", "localhost:3005");
+    });
+
+    it("Search for all products", function () {
+        cy.get('[data-test="search_button"]').click({ force: true });
+        cy.url().should("include", "cerca");
+    });
+
+    it("Search for 'prodotto' products", function () {
+        cy.get('[data-test="main-search"]')
+            .type('prodotto').should('have.value', 'prodotto');
+        cy.get('[data-test="search_button"]').click({ force: true });
+        cy.url().should("include", "q=prodotto");
+    });
+
+    it("Language", function () { // lingua italiana
+        cy.contains("Italiano").click({ force: true });
     });
 });
 
