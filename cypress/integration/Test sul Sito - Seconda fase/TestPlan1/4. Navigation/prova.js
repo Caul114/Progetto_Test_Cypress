@@ -1,16 +1,17 @@
-describe("Root of categories", function () {
-  it("Visit HomePage", function () {
-    cy.visit("http://localhost:3005/"); // url da visitare
+describe("Primary Header", function () {
+  beforeEach(() => {
+    cy.visit("/");
     cy.url().should("include", "localhost:3005");
-    cy.contains("Italiano").click({ force: true });
+    cy.wait(2000);
   });
 
+  it("Logo Shop-o-rama", function () {
+    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+    cy.url().should("include", "localhost:3005");
+  });
 
-  it("Abbigliamento e Accessori", function () {
-    cy.get('[data-test="category-0"]').click({
-      force: true
-    });
-    cy.url().should("include", "/categorie/abbigliamento-e-accessori");
+  it("Language", function () {
+    cy.contains("Italiano").click({ force: true });
   });
 });
 
