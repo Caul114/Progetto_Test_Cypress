@@ -8,13 +8,8 @@ describe("Products section - Our bestsellers", function () {
   });
 
 
-  it("Show other products", function () {
-    cy.get('[data-test="featured-product"]')
-      .find('[data-test="other-products"]')
-      .click({ force: true });
-    cy.get('[data-test="featured-product"]')
-      .find('[data-test="ProductsList_Products"]')
-      .find('[data-test="ProductsList__0"]')
-      .click({ force: true });
+  it("Abbigliamento e Accessori", function () {
+    cy.get('[data-test="category-0"]').click({ force: true });
+    cy.url().should("include", "/categorie/clothing-and-accessories");
   });
 });
