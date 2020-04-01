@@ -9,7 +9,6 @@ describe("Products section - Our bestsellers", function () {
 
 
   it("Abbigliamento e Accessori", function () {
-    cy.get('[data-test="category-0"]').click({ force: true });
-    cy.url().should("include", "/categorie/clothing-and-accessories");
+    cy.get('[data-test="Article__0"]').click({ force: true });
   });
 });
