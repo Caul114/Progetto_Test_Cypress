@@ -131,3 +131,79 @@ describe("Top Banner", function () {
         cy.url().should("include", "negozio");
     });
 });
+
+// Verifica del funzionamento della Sezione Prodotti - I nostri Prodotti
+
+describe("Products section - Our bestsellers", function () {
+    beforeEach(() => {
+        cy.visit("/");
+        cy.url().should("include", "localhost:3005");
+        cy.wait(2000);
+    });
+
+    it("Product 1", function () {
+        cy.get('[data-test="featured-product"]')
+            .find('[data-test="ProductsList_Products"]')
+            .find('[data-test="ProductsList__0 order-1"]')
+            .click({ force: true });
+    });
+
+    it("Product 2", function () {
+        cy.get('[data-test="featured-product"]')
+            .find('[data-test="ProductsList_Products"]')
+            .find('[data-test="ProductsList__1 order-2"]')
+            .click({ force: true });
+    });
+
+    it("Product 3", function () {
+        cy.get('[data-test="featured-product"]')
+            .find('[data-test="ProductsList_Products"]')
+            .find('[data-test="ProductsList__2 order-3"]')
+            .click({ force: true });
+    });
+
+    it("Product 4", function () {
+        cy.get('[data-test="featured-product"]')
+            .find('[data-test="ProductsList_Products"]')
+            .find('[data-test="ProductsList__3 order-4"]')
+            .click({ force: true });
+    });
+
+    it("Product 5", function () {
+        cy.get('[data-test="featured-product"]')
+            .find('[data-test="ProductsList_Products"]')
+            .find('[data-test="ProductsList__4 order-5"]')
+            .click({ force: true });
+    });
+
+    it("Product 6", function () {
+        cy.get('[data-test="featured-product"]')
+            .find('[data-test="ProductsList_Products"]')
+            .find('[data-test="ProductsList__5 order-6"]')
+            .click({ force: true });
+    });
+
+    it("Product 7", function () {
+        cy.get('[data-test="featured-product"]')
+            .find('[data-test="ProductsList_Products"]')
+            .find('[data-test="ProductsList__6 order-7"]')
+            .click({ force: true });
+    });
+
+    it("Product 8", function () {
+        cy.get('[data-test="featured-product"]')
+            .find('[data-test="ProductsList_Products"]')
+            .find('[data-test="ProductsList__7 order-8"]')
+            .click({ force: true });
+    });
+
+    it("Show other products", function () {
+        cy.get('[data-test="featured-product"]')
+            .find('[data-test="other-products"]')
+            .click({ force: true });
+        cy.get('[data-test="featured-product"]')
+            .find('[data-test="ProductsList_Products"]')
+            .find('[data-test="ProductsList__0"]')
+            .click({ force: true });
+    });
+});
