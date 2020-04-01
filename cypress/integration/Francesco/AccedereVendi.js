@@ -1,13 +1,9 @@
-describe('My FirstTest', function() {
-    it('Visit Shop-o-rama', function() {
-        cy.visit('http://localhost:3005/');
+describe('My FirstTest', function () {
+    it('Visit Shop-o-rama', function () {
+        cy.visit("https://sor-fe-staging.herokuapp.com/"); // url da visitare
 
-        cy.contains('Voglio Vendere').click({force:true})
+        cy.contains('Vendi').click({ force: true });
 
-        cy.url().should('include', 'accedi')
-
-        
+        cy.url().should('include', 'vendi-su-shoporama');
     });
-    
 })
-
