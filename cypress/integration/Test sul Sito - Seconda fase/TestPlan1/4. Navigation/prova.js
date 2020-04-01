@@ -5,10 +5,11 @@ describe("Primary Header", function () {
     cy.wait(2000);
   });
 
-  it("Login Page", function () {
-    cy.contains('Accedi').click({ force: true });
-    cy.wait(1000);
-    cy.get('[data-test="login_close"]').click({ force: true });
+  it("Language", function () {    // lingua italiana e inglese
+    cy.get('[data-test="italiano"]').click({ force: true });
+    // cy.url().should("include", "shop-o-rama.it");
+    cy.get('[data-test="english"]').click({ force: true });
+    // cy.url().should("include", "shop-o-rama.com");
   });
 
 });

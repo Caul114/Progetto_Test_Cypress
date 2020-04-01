@@ -41,8 +41,21 @@ describe("Primary Header", function () {
         cy.get('[data-test="login_close"]').click({ force: true });
     });
 
-    it("Language", function () {    // lingua italiana
-        cy.contains("Italiano").click({ force: true });
+    it("'Vendi' Page", function () {      // Pagina 'Vendi'
+        cy.get('[data-test="Shop"]').click({ force: true });
+        cy.url().should("include", "vendi-su-shoporama");
+    });
+
+    it("Shopping Cart Page", function () {      // Carrello
+        cy.get('[data-test="Shopping-cart"]').click({ force: true });
+        cy.url().should("include", "carrello");
+    });
+
+    it("Language", function () {        // lingua inglese e italiana
+        cy.get('[data-test="english"]').click({ force: true });
+        // cy.url().should("include", "shop-o-rama.com");
+        cy.get('[data-test="italiano"]').click({ force: true });
+        // cy.url().should("include", "shop-o-rama.it");
     });
 });
 
@@ -51,7 +64,7 @@ describe("Primary Header", function () {
 describe("Root of categories", function () {
     it("Abbigliamento e Accessori", function () {
         cy.get('[data-test="category-0"]').click({ force: true });
-        cy.url().should("include", "/categorie/abbigliamento-e-accessori");
+        cy.url().should("include", "/categorie/clothing-and-accessories");
     });
 
     it("Gioielli", function () {
