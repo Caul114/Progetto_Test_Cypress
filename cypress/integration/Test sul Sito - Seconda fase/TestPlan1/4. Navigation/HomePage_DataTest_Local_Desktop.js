@@ -5,7 +5,7 @@ describe("HomePage", function () {
     });
 
     // Chiusura del Banner policy
-    it("Chiusura Banner Privacy", function () {
+    it("Closure of the Privacy Banner", function () {
         cy.get('[data-test="close_cookie"]').click({ force: true });
         cy.wait(5000);
     });
@@ -62,44 +62,50 @@ describe("Primary Header", function () {
 // Verifica del funzionamento delle Categorie
 
 describe("Root of categories", function () {
-    it("Abbigliamento e Accessori", function () {
+    beforeEach(() => {
+        cy.visit("/");
+        cy.url().should("include", "localhost:3005");
+        cy.wait(2000);
+    });
+
+    it("Clothing and accessories", function () {
         cy.get('[data-test="category-0"]').click({ force: true });
         cy.url().should("include", "/categorie/clothing-and-accessories");
     });
 
-    it("Gioielli", function () {
+    it("Jewellery", function () {
         cy.get('[data-test="category-1"]').click({ force: true });
-        cy.url().should("include", "/categorie/gioielli");
+        cy.url().should("include", "/categorie/jewellery");
     });
 
-    it("Benessere", function () {
+    it("Wellness", function () {
         cy.get('[data-test="category-2"]').click({ force: true });
-        cy.url().should("include", "/categorie/benessere");
+        cy.url().should("include", "/categorie/wellness");
     });
 
-    it("Arredamento", function () {
+    it("Home decor", function () {
         cy.get('[data-test="category-3"]').click({ force: true });
-        cy.url().should("include", "/categorie/arredamento");
+        cy.url().should("include", "/categorie/-home-decor-");
     });
 
-    it("Arte", function () {
+    it("Art", function () {
         cy.get('[data-test="category-4"]').click({ force: true });
-        cy.url().should("include", "/categorie/arte");
+        cy.url().should("include", "/categorie/art");
     });
 
-    it("Tempo libero", function () {
+    it("Leisure", function () {
         cy.get('[data-test="category-5"]').click({ force: true });
-        cy.url().should("include", "/categorie/tempo-libero");
+        cy.url().should("include", "/categorie/leisure");
     });
 
-    it("Infanzia", function () {
+    it("Baby", function () {
         cy.get('[data-test="category-6"]').click({ force: true });
-        cy.url().should("include", "/categorie/infanzia");
+        cy.url().should("include", "/categorie/baby");
     });
 
-    it("Alimentari", function () {
+    it("Gourmet food", function () {
         cy.get('[data-test="category-7"]').click({ force: true });
-        cy.url().should("include", "categorie/alimentari");
+        cy.url().should("include", "categorie/gourmet-food");
     });
 
     it("Magazine", function () {
@@ -107,7 +113,7 @@ describe("Root of categories", function () {
         cy.url().should("include", "magazine");
     });
 
-    it("Idee regalo", function () {
+    it("Gift Ideas", function () {
         cy.get('[data-test="gift"]').click({ force: true });
         cy.url().should("include", "idee-regalo");
     });
