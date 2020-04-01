@@ -6,9 +6,9 @@ describe("Primary Header", function () {
   });
 
   it("Login Page", function () {
-    cy.get('[data-test="header-list-accedi"]').click({ force: true });
-    // cy.get('[data-test="login_close"]').click({ force: true });
-
+    cy.contains('Accedi').click({ force: true });
+    cy.wait(1000);
+    cy.get('[data-test="login_close"]').click({ force: true });
   });
 
 });

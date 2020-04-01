@@ -23,19 +23,25 @@ describe("Primary Header", function () {
         cy.url().should("include", "localhost:3005");
     });
 
-    it("Search for all products", function () {
+    it("Search for all products", function () {     // search, tutti i prodotti
         cy.get('[data-test="search_button"]').click({ force: true });
         cy.url().should("include", "cerca");
     });
 
-    it("Search for 'prodotto' products", function () {
+    it("Search for 'prodotto' products", function () {      // search, prodotto specifico
         cy.get('[data-test="main-search"]')
             .type('prodotto').should('have.value', 'prodotto');
         cy.get('[data-test="search_button"]').click({ force: true });
         cy.url().should("include", "q=prodotto");
     });
 
-    it("Language", function () { // lingua italiana
+    it("Login Page", function () {      // Login con 'Accedi'
+        cy.contains('Accedi').click({ force: true });
+        cy.wait(1000);
+        cy.get('[data-test="login_close"]').click({ force: true });
+    });
+
+    it("Language", function () {    // lingua italiana
         cy.contains("Italiano").click({ force: true });
     });
 });
