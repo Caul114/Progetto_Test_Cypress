@@ -13,6 +13,10 @@ describe("HomePage", function () {
     it("Chiusura Banner Privacy", function () {
       cy.get('[data-test="close_cookie"]').click({ force: true });
     });
+    it("Logo Shop-o-rama", function () {
+        cy.get('[data-test="LogoLink_Header"]').click({ force: true }); // Logo di Shop-o-rama
+        cy.url().should("include", "localhost:3005");
+    });
   });
   //commento di prova
 describe("Root Categories", function () {
@@ -21,4 +25,5 @@ describe("Root Categories", function () {
       cy.wait(2000);
       cy.url().should("include", "/categorie/abbigliamento-e-accessori");
     });
-});  
+});
+
