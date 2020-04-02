@@ -32,7 +32,6 @@ describe("Login as Buyer", function () {
     });
 });
 
-
 // Cercare un prodotto di seller1@getnada.com
 
 describe("Purchase of a product", function () {
@@ -48,9 +47,36 @@ describe("Purchase of a product", function () {
             .click({ force: true });
         cy.url().should("include", "prova-1");
     });
+
+    it("Load the product on the cart", function () {     //  Carico il prodotto sul carrello
+        cy.get('[data-test="add-to-cart"]')
+            .click({ force: true });
+    });
 });
 
-// Caricarlo sul carrello
+// Effettuare un acquisto
+
+describe("Buy a product", function () {
+    it("The cart", function () {     // CVado nel carrello carrello
+        cy.get('[data-test="Shopping-cart"]')
+            .click({ force: true });
+        cy.url().should("include", "carrello");
+    });
+
+    it("Buy the product", function () {     //  Effetttuo l'acquisto
+        cy.get('[data-test="order"]')
+            .click({ force: true });
+    });
+
+    it("!!! In case of error !!!", function () {     //  Chiudo il modale di errore
+        cy.get('.ConfirmModal_ModalBoxAccept__1hYwL')
+            .click({ force: true });
+    });
+
+});
+
+
+
 
 // Usando un indirizzo di spedizione già presente e una CC già presente, fare l'acquisto
 

@@ -14,9 +14,14 @@ describe("Purchase of a product", function () {
         cy.url().should("include", "q=seller%201&page=1");
     });
 
-    it("Choose 'Prodotto 1", function () {
+    it("Choose 'Prodotto 1", function () {     //  scelgo il prodotto Prova 1
         cy.get('[data-test="ProductCard__ProdTitle-3751"]')
             .click({ force: true });
         cy.url().should("include", "prova-1");
+    });
+
+    it("Load the product on the cart", function () {     //  Carico il prodotto sul carrello
+        cy.get('[data-test="add-to-cart"]')
+            .click({ force: true });
     });
 });
