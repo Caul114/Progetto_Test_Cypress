@@ -48,10 +48,31 @@ describe("Purchase of a product", function () {
         cy.url().should("include", "prova-1");
     });
 
-    it("I load the product on the cart", function () {     //  Carico il prodotto sul carrello
+    it("Load the product on the cart", function () {     //  Carico il prodotto sul carrello
         cy.get('[data-test="add-to-cart"]')
             .click({ force: true });
     });
+});
+
+// Effettuare un acquisto
+
+describe("Buy a product", function () {
+    it("The cart", function () {     // CVado nel carrello carrello
+        cy.get('[data-test="Shopping-cart"]')
+            .click({ force: true });
+        cy.url().should("include", "carrello");
+    });
+
+    it("Buy the product", function () {     //  Effetttuo l'acquisto
+        cy.get('[data-test="order"]')
+            .click({ force: true });
+    });
+
+    it("!!! In case of error !!!", function () {     //  Chiudo il modale di errore
+        cy.get('.ConfirmModal_ModalBoxAccept__1hYwL')
+            .click({ force: true });
+    });
+
 });
 
 

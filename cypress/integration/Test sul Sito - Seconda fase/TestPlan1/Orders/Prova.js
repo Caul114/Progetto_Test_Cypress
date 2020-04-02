@@ -24,5 +24,4 @@ describe("Purchase of a product", function () {
         cy.get('[data-test="add-to-cart"]')
             .click({ force: true });
     });
-
 });
