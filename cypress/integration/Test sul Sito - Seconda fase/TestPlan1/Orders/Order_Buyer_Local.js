@@ -84,7 +84,8 @@ describe("Buyer Logout", function () {
     });
 
     it("Buyer Logout", function () {     // Faccio il Logout
-        cy.get('[data-test="signout_buyer"]')
+        cy.get(".sorDashboardContainer")
+            .find('[data-test="signout_buyer"]')
             .click({ force: true });
     });
 });
