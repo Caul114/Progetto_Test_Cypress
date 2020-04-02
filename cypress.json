@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://sor-fe-staging.herokuapp.com",
+  "baseUrl": "http://localhost:3005/",
   "chromeWebSecurity": false,
   "projectId": "xeif34",
   "viewportWidth": 1024,
