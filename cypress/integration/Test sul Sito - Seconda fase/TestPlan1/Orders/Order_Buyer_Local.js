@@ -57,7 +57,7 @@ describe("Purchase of a product", function () {
 // Effettuare un acquisto
 
 describe("Buy a product", function () {
-    it("The cart", function () {     // CVado nel carrello carrello
+    it("The cart", function () {     // Vado nel carrello
         cy.get('[data-test="Shopping-cart"]')
             .click({ force: true });
         cy.url().should("include", "carrello");
@@ -72,7 +72,21 @@ describe("Buy a product", function () {
         cy.get('.ConfirmModal_ModalBoxAccept__1hYwL')
             .click({ force: true });
     });
+});
 
+// Logout Buyer
+
+describe("Buyer Logout", function () {
+    it("Go to the Dashboard Buyer", function () {     // Vado nella Dashboard del Buyer
+        cy.get('[data-test="User"]')
+            .click({ force: true });
+        cy.url().should("include", "dashboard");
+    });
+
+    it("Buyer Logout", function () {     // Faccio il Logout
+        cy.get('[data-test="signout_buyer"]')
+            .click({ force: true });
+    });
 });
 
 

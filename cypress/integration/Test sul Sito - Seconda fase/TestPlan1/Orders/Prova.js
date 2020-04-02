@@ -1,27 +1,48 @@
-// Cercare un prodotto di seller1@getnada.com
+// Accedere come Buyer buyer1@getnada.com
 
-describe("Purchase of a product", function () {
-    it("Localhost:3005", function () {
-        cy.visit("/");
+describe("Login as Buyer", function () {
+    it("Visit HomePage", function () {
+        cy.visit("http://localhost:3005/"); // url da visitare
         cy.url().should("include", "localhost:3005");
-        cy.wait(2000);
     });
 
-    it("Search for 'seller 1' product", function () {      // search, prodotto specifico
-        cy.get('[data-test="main-search"]')
-            .type('seller 1').should('have.value', 'seller 1');
-        cy.get('[data-test="search_button"]').click({ force: true });
-        cy.url().should("include", "q=seller%201&page=1");
+    it("Closure of the Privacy Banner", function () {       // Chiusura del Banner policy
+        cy.get('[data-test="close_cookie"]').click({ force: true });
+        // cy.wait(5000);
     });
 
-    it("Choose 'Prodotto 1", function () {     //  scelgo il prodotto Prova 1
-        cy.get('[data-test="ProductCard__ProdTitle-3751"]')
+    it("Login Page", function () {      // Login con 'Accedi'
+        cy.contains('Accedi').click({ force: true });
+    });
+
+    it("Login as Buyer", function () {      // Login come buyer1@getnada.com
+        cy.get('[data-test="LoginForm"]').find('[data-test="email"]')
+            .type("buyer1@getnada.com")
+            .should("have.value", "buyer1@getnada.com");
+
+        cy.get('[data-test="LoginForm"]').find('[data-test="password"]')
+            .type("Password1")
+            .should("have.value", "Password1");
+
+        cy.get("button")
+            .contains("Invia")
             .click({ force: true });
-        cy.url().should("include", "prova-1");
+
+        // cy.wait(4000);
+    });
+});
+
+// Logout Buyer
+
+describe("Buyer Logout", function () {
+    it("Go to the Dashboard Buyer", function () {     // Vado nella Dashboard del Buyer
+        cy.get('[data-test="User"]')
+            .click({ force: true });
+        cy.url().should("include", "dashboard");
     });
 
-    it("Load the product on the cart", function () {     //  Carico il prodotto sul carrello
-        cy.get('[data-test="add-to-cart"]')
+    it("Buyer Logout", function () {     // Faccio il Logout
+        cy.get('[data-test="signout_buyer"]')
             .click({ force: true });
     });
 });
