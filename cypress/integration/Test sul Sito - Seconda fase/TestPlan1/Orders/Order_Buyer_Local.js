@@ -32,7 +32,6 @@ describe("Login as Buyer", function () {
     });
 });
 
-
 // Cercare un prodotto di seller1@getnada.com
 
 describe("Purchase of a product", function () {
@@ -48,9 +47,15 @@ describe("Purchase of a product", function () {
             .click({ force: true });
         cy.url().should("include", "prova-1");
     });
+
+    it("I load the product on the cart", function () {     //  Carico il prodotto sul carrello
+        cy.get('[data-test="add-to-cart"]')
+            .click({ force: true });
+    });
 });
 
-// Caricarlo sul carrello
+
+
 
 // Usando un indirizzo di spedizione già presente e una CC già presente, fare l'acquisto
 
