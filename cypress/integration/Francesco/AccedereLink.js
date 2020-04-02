@@ -14,7 +14,7 @@ describe("HomePage", function () {
       cy.get('[data-test="close_cookie"]').click({ force: true });
     });
   });
-  
+  //commento di prova
 describe("Root Categories", function () {
     it("Abbigliamento e Accessori", function () {
       cy.contains("Abbigliamento e accessori").click({ force: true });
