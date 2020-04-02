@@ -16,8 +16,7 @@ describe("Login as Buyer", function () {
             .type("5h0p0r4m4")
             .should("have.value", "5h0p0r4m4");
 
-        cy.get('[type="submit"]')
-            .contains('Login')
+        cy.get('input[type=submit]')
             .click({ force: true });
 
         //     // cy.wait(4000);
