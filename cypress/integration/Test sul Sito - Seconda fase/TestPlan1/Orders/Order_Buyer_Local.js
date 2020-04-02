@@ -54,7 +54,7 @@ describe("Purchase of a product", function () {
     });
 });
 
-// Effettuare un acquisto
+// Usando un indirizzo di spedizione già presente e una CC già presente, fare l'acquisto
 
 describe("Buy a product", function () {
     it("The cart", function () {     // Vado nel carrello
@@ -90,10 +90,6 @@ describe("Buyer Logout", function () {
     });
 });
 
-
-
-
-// Usando un indirizzo di spedizione già presente e una CC già presente, fare l'acquisto
 
 // Verificare sul BO di staging che l'acquisto sia presente
 
