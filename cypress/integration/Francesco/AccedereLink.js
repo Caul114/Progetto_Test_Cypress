@@ -25,6 +25,23 @@ describe("Root Categories", function () {
       cy.wait(2000);
       cy.url().should("include", "/categorie/abbigliamento-e-accessori");
     });
+    it("Benessere", function () {
+      cy.contains("Benessere").click({ force: true });
+      cy.wait(2000);
+      cy.url().should("include", "/categorie/benessere");
+    });
+    it("Arredamento", function () {
+      cy.contains("Arredamento").click({ force: true });
+      cy.wait(2000);
+      cy.url().should("include", "/categorie/arredamento");
+    });
+  
+    it("Arte", function () {
+      cy.contains("Arte").click({ force: true });
+      cy.wait(2000);
+      cy.url().should("include", "categorie/arte");
+    });
+});
 
     
   it("Infanzia", function () {
