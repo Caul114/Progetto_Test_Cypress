@@ -25,5 +25,29 @@ describe("Root Categories", function () {
       cy.wait(2000);
       cy.url().should("include", "/categorie/abbigliamento-e-accessori");
     });
-});
 
+    
+  it("Infanzia", function () {
+    cy.contains("Infanzia").click({ force: true });
+    cy.wait(2000);
+    cy.url().should("include", "/categorie/infanzia");
+  });
+
+  it("Alimentari", function () {
+    cy.contains("Alimentari").click({ force: true });
+    cy.wait(2000);
+    cy.url().should("include", "/categorie/alimentari");
+  });
+
+  it("Magazine", function () {
+    cy.contains("Magazine").click({ force: true });
+    cy.wait(2000);
+    cy.url().should("include", "/magazine");
+  });
+
+  it("Idee Regalo", function () {
+    cy.contains("Idee Regalo").click({ force: true });
+    cy.wait(2000);
+    cy.url().should("include", "/idee-regalo");
+  });
+});
