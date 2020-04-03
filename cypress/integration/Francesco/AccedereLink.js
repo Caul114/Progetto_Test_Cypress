@@ -36,7 +36,12 @@ describe("Root Categories", function () {
     cy.url().should("include", "/categorie/arredamento");
   });
 
-    
+  it("Arte", function () {
+    cy.contains("Arte").click({ force: true });
+    cy.wait(2000);
+    cy.url().should("include", "categorie/arte");
+  });
+
   it("Infanzia", function () {
     cy.contains("Infanzia").click({ force: true });
     cy.wait(2000);
@@ -61,3 +66,4 @@ describe("Root Categories", function () {
     cy.url().should("include", "/idee-regalo");
   });
 });
+
