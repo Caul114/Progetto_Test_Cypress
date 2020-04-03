@@ -19,7 +19,12 @@ describe("Login as Buyer", function () {
         cy.get('input[type=submit]')
             .click({ force: true });
 
-        //     // cy.wait(4000);
+        // cy.get('.action-form')
+        //     .find('[type="text"]').type('HALFOFF')
+        // cy.get('.action-form').submit()
+        //     .next().should('contain', 'Your form has been submitted!')
+
+        // cy.wait(4000);
     });
 });
 
