@@ -17,6 +17,31 @@ describe("HomePage", function () {
     cy.get('[data-test="LogoLink_Header"]').click({ force: true }); // Logo di Shop-o-rama
     cy.url().should("include", "herokuapp");
   });
+  //commento di prova
+describe("Root Categories", function () {
+    it("Abbigliamento e Accessori", function () {
+      cy.contains("Abbigliamento e accessori").click({ force: true });
+      cy.wait(2000);
+      cy.url().should("include", "/categorie/abbigliamento-e-accessori");
+    });
+    it("Benessere", function () {
+      cy.contains("Benessere").click({ force: true });
+      cy.wait(2000);
+      cy.url().should("include", "/categorie/benessere");
+    });
+    it("Arredamento", function () {
+      cy.contains("Arredamento").click({ force: true });
+      cy.wait(2000);
+      cy.url().should("include", "/categorie/arredamento");
+    });
+  
+    it("Arte", function () {
+      cy.contains("Arte").click({ force: true });
+      cy.wait(2000);
+      cy.url().should("include", "categorie/arte");
+    });
+        
+
 });
 //commento di prova
 describe("Root Categories", function () {
@@ -42,6 +67,7 @@ describe("Root Categories", function () {
     cy.url().should("include", "categorie/arte");
   });
 
+
   it("Infanzia", function () {
     cy.contains("Infanzia").click({ force: true });
     cy.wait(2000);
@@ -65,5 +91,6 @@ describe("Root Categories", function () {
     cy.wait(2000);
     cy.url().should("include", "/idee-regalo");
   });
+
 });
 
