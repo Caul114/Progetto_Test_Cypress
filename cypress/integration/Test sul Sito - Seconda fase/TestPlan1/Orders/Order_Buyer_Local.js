@@ -32,7 +32,6 @@ describe("Login as Buyer", function () {
     });
 });
 
-
 // Cercare un prodotto di seller1@getnada.com
 
 describe("Purchase of a product", function () {
@@ -48,11 +47,49 @@ describe("Purchase of a product", function () {
             .click({ force: true });
         cy.url().should("include", "prova-1");
     });
+
+    it("Load the product on the cart", function () {     //  Carico il prodotto sul carrello
+        cy.get('[data-test="add-to-cart"]')
+            .click({ force: true });
+    });
 });
 
-// Caricarlo sul carrello
-
 // Usando un indirizzo di spedizione già presente e una CC già presente, fare l'acquisto
+
+describe("Buy a product", function () {
+    it("The cart", function () {     // Vado nel carrello
+        cy.get('[data-test="Shopping-cart"]')
+            .click({ force: true });
+        cy.url().should("include", "carrello");
+    });
+
+    it("Buy the product", function () {     //  Effetttuo l'acquisto
+        cy.get('[data-test="order"]')
+            .click({ force: true });
+    });
+
+    it("!!! In case of error !!!", function () {     //  Chiudo il modale di errore
+        cy.get('.ConfirmModal_ModalBoxAccept__1hYwL')
+            .click({ force: true });
+    });
+});
+
+// Logout Buyer
+
+describe("Buyer Logout", function () {
+    it("Go to the Dashboard Buyer", function () {     // Vado nella Dashboard del Buyer
+        cy.get('[data-test="User"]')
+            .click({ force: true });
+        cy.url().should("include", "dashboard");
+    });
+
+    it("Buyer Logout", function () {     // Faccio il Logout
+        cy.get(".sorDashboardContainer")
+            .find('[data-test="signout_buyer"]')
+            .click({ force: true });
+    });
+});
+
 
 // Verificare sul BO di staging che l'acquisto sia presente
 

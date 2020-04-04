@@ -1,22 +1,25 @@
-// Cercare un prodotto di seller1@getnada.com
+// Accedere come Buyer buyer1@getnada.com
 
-describe("Purchase of a product", function () {
-    it("Localhost:3005", function () {
-        cy.visit("/");
-        cy.url().should("include", "localhost:3005");
-        cy.wait(2000);
+describe("Login as Buyer", function () {
+    it("Visit HomePage", function () {
+        cy.visit("http://localhost:3000/admin/dashboard"); // url da visitare
+        cy.url().should("include", "admin/login");
     });
 
-    it("Search for 'seller 1' product", function () {      // search, prodotto specifico
-        cy.get('[data-test="main-search"]')
-            .type('seller 1').should('have.value', 'seller 1');
-        cy.get('[data-test="search_button"]').click({ force: true });
-        cy.url().should("include", "q=seller%201&page=1");
-    });
 
-    it("Choose 'Prodotto 1", function () {
-        cy.get('[data-test="ProductCard__ProdTitle-3751"]')
+    it("Login as Buyer", function () {      // Login come buyer1@getnada.com
+        cy.get('#email')
+            .type("tech@shop-o-rama.it")
+            .should("have.value", "tech@shop-o-rama.it");
+
+        cy.get('#password')
+            .type("5h0p0r4m4")
+            .should("have.value", "5h0p0r4m4");
+
+        cy.get('input[type=submit]')
             .click({ force: true });
-        cy.url().should("include", "prova-1");
+
+        //     // cy.wait(4000);
     });
 });
+
