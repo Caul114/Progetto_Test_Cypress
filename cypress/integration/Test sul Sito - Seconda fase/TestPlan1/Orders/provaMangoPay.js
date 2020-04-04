@@ -27,7 +27,4 @@ describe("Login in Mangopay", function () {
         cy.get('[method="post"]')
             .find('[type="submit"]').click({ force: true });
     })
-
-
-
 });

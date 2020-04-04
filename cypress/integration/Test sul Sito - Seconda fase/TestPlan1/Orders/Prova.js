@@ -2,7 +2,7 @@
 
 describe("Login as Buyer", function () {
     it("Visit HomePage", function () {
-        cy.visit("http://localhost:3000/admin/dashboard"); // url da visitare
+        cy.visit("https://staging.shop-o-rama.it/admin"); // url da visitare
         cy.url().should("include", "admin/login");
     });
 
@@ -19,7 +19,12 @@ describe("Login as Buyer", function () {
         cy.get('input[type=submit]')
             .click({ force: true });
 
-        //     // cy.wait(4000);
+        // cy.get('.action-form')
+        //     .find('[type="text"]').type('HALFOFF')
+        // cy.get('.action-form').submit()
+        //     .next().should('contain', 'Your form has been submitted!')
+
+        // cy.wait(4000);
     });
 });
 
