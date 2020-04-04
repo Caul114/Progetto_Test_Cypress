@@ -2,7 +2,7 @@
 
 describe("Login as Buyer", function () {
     it("Visit HomePage", function () {
-        cy.visit("http://localhost:3000/admin/dashboard"); // url da visitare
+        cy.visit("https://staging.shop-o-rama.it/admin"); // url da visitare
         cy.url().should("include", "admin/login");
     });
 
