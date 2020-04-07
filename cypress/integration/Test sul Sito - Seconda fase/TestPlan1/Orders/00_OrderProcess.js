@@ -87,8 +87,10 @@ describe("Buyer Logout", function () {
         cy.get(".sorDashboardContainer")
             .find('[data-test="signout_buyer"]')
             .click({ force: true });
+        cy.clearCookies()       // Cancello tutti i cookies
     });
 });
+
 
 // Accedere come Utente nel BackOffice e confermare l'ordine
 
