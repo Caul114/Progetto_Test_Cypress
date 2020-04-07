@@ -1,6 +1,6 @@
-// Accedere come Buyer buyer1@getnada.com
+// Accedere come Utente nel BackOffice e confermare l'ordine
 
-describe('SOR acceot the Order', function () {
+describe('SOR accept the Order', function () {
     const email = 'luca@shop-o-rama.it'
     const password = 'Banana'
 
@@ -30,4 +30,3 @@ describe('SOR acceot the Order', function () {
         cy.contains('SoR accept').click({ force: true });
     })
 })
-
