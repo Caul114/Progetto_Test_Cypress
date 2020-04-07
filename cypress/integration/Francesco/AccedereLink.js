@@ -184,4 +184,21 @@ describe("Products section - Our bestsellers", function () {
           .find('[data-test="ProductsList__0"]')
           .click({ force: true });
   });
+
+  it("Frecce", function () {
+    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+
+    cy.get(".SliderArrow__Next").click({ force: true });
+    cy.wait(1000);
+    cy.get(".SliderArrow__Next").click({ force: true });
+    cy.wait(1000);
+    cy.get(".SliderArrow__Next").click({ force: true });
+    cy.wait(1000);
+
+    cy.get(".SliderArrow__Prev").click({ force: true });
+    cy.wait(1000);
+    cy.get(".SliderArrow__Prev").click({ force: true });
+    cy.wait(1000);
+    cy.get(".SliderArrow__Prev").click({ force: true });
+  });
 });
