@@ -202,3 +202,23 @@ describe("Products section - Our bestsellers", function () {
     cy.get(".SliderArrow__Prev").click({ force: true });
   });
 });
+
+describe("Sezione Magazine", function () {
+  it("Articolo 1", function () {
+    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+    cy.get('[data-test="Article__0"]').click({ force: true });
+    cy.url().should("include", "magazine");
+  });
+
+  it("Articolo 2", function () {
+    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+    cy.get('[data-test="Article__1"]').click({ force: true });
+    cy.url().should("include", "magazine");
+  });
+
+  it("Articolo 3", function () {
+    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+    cy.get('[data-test="Article__2"]').click({ force: true });
+    cy.url().should("include", "magazine");
+  });
+});
