@@ -28,5 +28,10 @@ describe('SOR accept the Order', function () {
 
         // Accetto l'Ordine
         cy.contains('SoR accept').click({ force: true });
+
+        // Logout dal backoffice
+        cy.get('.caret').click({ force: true });
+        cy.contains('Log out').click({ force: true });
+        cy.clearCookies()       // Cancello tutti i cookies
     })
 })

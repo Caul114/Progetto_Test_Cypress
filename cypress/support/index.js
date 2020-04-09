@@ -24,3 +24,5 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     // failing the test
     return false
 })
+
+    // using mocha's async done callback to finish this test so we prove that an uncaught exception was thrown
