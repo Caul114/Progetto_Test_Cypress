@@ -1,33 +1,67 @@
-// Accedere come Buyer buyer1@getnada.com
+import './../../../../support/index' // aggiunta fatta nel caso di eccezioni generiche
 
-describe('SOR acceot the Order', function () {
-    const email = 'luca@shop-o-rama.it'
-    const password = 'Banana'
+describe("Login as Seller", function () {
 
-    const inDashboard = () => {
-        it('control dashboard', () => {
-            cy.location('href').should('match', /dashboard$/)
-            cy.contains('h1', 'Dashboard')
+    // Valori di Login per il Seller
+    const emails = 'wonderwoman@shop-o-rama.it'
+    const passwords = 'Password1@'
+
+    it("Visit HomePage", function () {
+        cy.visit("http://localhost:3005/"); // url da visitare
+        cy.url().should("include", "localhost:3005");
+    });
+
+    it("Closure of the Privacy Banner", function () {       // Chiusura del Banner policy
+        cy.get('[data-test="close_cookie"]').click({ force: true });
+        // cy.wait(5000);
+    });
+
+    it("Language", function () {        // lingua inglese e italiana
+        cy.get('[data-test="italiano"]').click({ force: true });
+        // cy.url().should("include", "shop-o-rama.it");
+    });
+
+    it("Login Page", function () {      // Login con 'Accedi'
+        cy.contains('Accedi').click({ force: true });
+    });
+
+    it("Login as Seller", function (done) {      // Login come Seller
+
+        cy.on('uncaught:exception', (err, runnable) => { // aggiunta nel caso di eccezioni specifiche
+            expect(err.message).to.include('of undefined')
+            done()
+            return false
         })
-    }
 
-    it('Slow login via UI and order acceptance', () => {
-        // Faccio Login nella Dashboard 
-        cy.visit('https://staging.shop-o-rama.it//admin/login')
-        cy.get('input[name=email]').type(email)
-        cy.get('input[name=password]').type(password)
-        cy.get('input[type=submit]').click({ force: true });
-        inDashboard()
+        cy.get('[data-test="LoginForm"]').find('[data-test="email"]')
+            .type(emails)
+            .should("have.value", 'wonderwoman@shop-o-rama.it');
 
-        // Vado negli pagina Ordini
-        cy.contains('Orders').click({ force: true });
+        cy.get('[data-test="LoginForm"]').find('[data-test="password"]')
+            .type(passwords)
+            .should("have.value", "Password1@");
 
-        // Trovo l'ultimo ordine fatto e ci entro
-        cy.get('table').find('td').as('order');
-        cy.get('@order').first().click({ force: true });
+        cy.get("button")
+            .contains("Invia")
+            .click({ force: true });
 
-        // Accetto l'Ordine
-        cy.contains('SoR accept').click({ force: true });
-    })
-})
+        // cy.wait(4000);
+    });
+});
+
+// Logout Seller
+
+// describe("Seller Logout", function () {
+//     it("Go to the Dashboard Seller", function () {     // Vado nella Dashboard del Buyer
+//         cy.get('[data-test="User"]')
+//             .click({ force: true });
+//         cy.url().should("include", "dashboard");
+//     });
+
+//     it("Buyer Logout", function () {     // Faccio il Logout
+//         cy.get(".sorDashboardContainer")
+//             .find('[data-test="signout_buyer"]')
+//             .click({ force: true });
+//     });
+// });
 

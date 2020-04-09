@@ -1,6 +1,9 @@
-// Accedere come Buyer buyer1@getnada.com
+// Accedere come Buyer
 
 describe("Login as Buyer", function () {
+    const emailb = 'buyer1@getnada.com'
+    const passwordb = 'Password1'
+
     it("Visit HomePage", function () {
         cy.visit("http://localhost:3005/"); // url da visitare
         cy.url().should("include", "localhost:3005");
@@ -15,13 +18,13 @@ describe("Login as Buyer", function () {
         cy.contains('Accedi').click({ force: true });
     });
 
-    it("Login as Buyer", function () {      // Login come buyer1@getnada.com
+    it("Login as Buyer", function () {      // Login come Buyer
         cy.get('[data-test="LoginForm"]').find('[data-test="email"]')
-            .type("buyer1@getnada.com")
+            .type(emailb)
             .should("have.value", "buyer1@getnada.com");
 
         cy.get('[data-test="LoginForm"]').find('[data-test="password"]')
-            .type("Password1")
+            .type(passwordb)
             .should("have.value", "Password1");
 
         cy.get("button")
