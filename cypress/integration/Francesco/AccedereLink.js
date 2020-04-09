@@ -222,3 +222,12 @@ describe("Sezione Magazine", function () {
     cy.url().should("include", "magazine");
   });
 });
+
+
+describe("Sezione 'Apri il tuo negozio'", function () {
+  it("Accesso alla registrazione del negozio per il Seller", function () {
+    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+    cy.get('[data-test="RibbonCTA__Content"]').click({ force: true });
+    cy.url().should("include", "/accedi#registrazione_venditore");
+  });
+});
