@@ -25,4 +25,5 @@ Cypress.on('uncaught:exception', (err, runnable) => {
     return false
 })
 
-    // using mocha's async done callback to finish this test so we prove that an uncaught exception was thrown
+// likely want to do this in a support file so it's applied to all spec files cypress/support/index.js
+// using mocha's async done callback to finish this test so we prove that an uncaught exception was thrown
