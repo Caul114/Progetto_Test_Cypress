@@ -16,6 +16,7 @@ describe("Login as Buyer", function () {
 
     it("Login Page", function () {      // Login con 'Accedi'
         cy.contains('Accedi').click({ force: true });
+        cy.wait(5000);
     });
 
     it("Login as Buyer", function () {      // Login come Buyer
