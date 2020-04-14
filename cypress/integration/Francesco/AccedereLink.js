@@ -230,4 +230,10 @@ describe("Sezione 'Apri il tuo negozio'", function () {
     cy.get('[data-test="RibbonCTA__Content"]').click({ force: true });
     cy.url().should("include", "/accedi#registrazione_venditore");
   });
+  it("Prodotto 3", function () {
+    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+    cy.get('[data-test="product-list"]')
+      .find('[data-test="ProductsList__2"]')
+      .click({ force: true });
+  });
 });
