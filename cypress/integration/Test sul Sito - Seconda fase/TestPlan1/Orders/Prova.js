@@ -36,7 +36,7 @@ describe("Login as Seller", function () {
             .should("have.value", 'negoziocypress@shop-o-rama.it');
 
         cy.get('[data-test="LoginForm"]').find('[data-test="password"]')
-            .type(passwords)
+            .type(`${passwords}`)
             .should("have.value", "Password1@");
     });
 
