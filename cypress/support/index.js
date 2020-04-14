@@ -21,9 +21,11 @@ import './commands'
 
 Cypress.on('uncaught:exception', (err, runnable) => {
     // returning false here prevents Cypress from
-    // failing the test
+    // failing the test    
     return false
 })
+
+
 
 // likely want to do this in a support file so it's applied to all spec files cypress/support/index.js
 // using mocha's async done callback to finish this test so we prove that an uncaught exception was thrown
