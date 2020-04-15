@@ -240,4 +240,20 @@ describe("Sezione 'Apri il tuo negozio'", function () {
       .find('[data-test="ProductsList__2"]')
       .click({ force: true });
   });
+  describe("Iscrizione alla Newsletter", function () {
+    it("Iscrivo un utente già registrato", function () {
+      cy.get('[data-test="NewsletterSignup"]')
+        .find('[name="email"]')
+        .type("kenshiro@getnada.com")
+        .should("have.value", "kenshiro@getnada.com");
+  
+      cy.get('[type="checkbox"]').check();
+  
+      cy.get('[data-test="PolicyModal_Accept"]').click({ force: true });
+  
+      cy.get('[data-test="NewsletterSignup__sorForm"]')
+        .submit()
+        .should("contain", "Utente già registrato alla nostra newsletter");
+    });
+  });
 });
