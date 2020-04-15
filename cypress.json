@@ -1,4 +1,5 @@
 {
+  "baseUrl": "http://localhost:3005/",
   "chromeWebSecurity": false,
   "projectId": "xeif34",
   "viewportWidth": 1024,

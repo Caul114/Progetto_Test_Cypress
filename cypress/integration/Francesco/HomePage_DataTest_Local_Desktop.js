@@ -13,7 +13,7 @@ describe("HomePage", function () {
 
 describe("Primary Header", function () {
     beforeEach(() => {
-        cy.visit("/");
+        cy.visit("http://localhost:3005/");
         cy.url().should("include", "localhost:3005");
         cy.wait(2000);
     });
@@ -63,7 +63,7 @@ describe("Primary Header", function () {
 
 describe("Root of categories", function () {
     beforeEach(() => {
-        cy.visit("/");
+        cy.visit("http://localhost:3005/");
         cy.url().should("include", "localhost:3005");
         cy.wait(2000);
     });
@@ -123,7 +123,7 @@ describe("Root of categories", function () {
 
 describe("Top Banner", function () {
     beforeEach(() => {
-        cy.visit("/");
+        cy.visit("http://localhost:3005/");
         cy.wait(5000);
     });
 
@@ -142,7 +142,7 @@ describe("Top Banner", function () {
 
 describe("Products section - Our bestsellers", function () {
     beforeEach(() => {
-        cy.visit("/");
+        cy.visit("http://localhost:3005/");
         cy.url().should("include", "localhost:3005");
         cy.wait(2000);
     });
