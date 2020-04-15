@@ -6,6 +6,10 @@ describe("HomePage", function () {
     // cy.url().should("include", "www.shop-o-rama.it");
     cy.visit("https://sor-fe-staging.herokuapp.com/"); // url da visitare
     cy.url().should("include", "sor-fe-staging.herokuapp.com/");
+    
+    // da molti più errori se si utilizza il codice localhost
+    //cy.visit("http://localhost:3005/"); // url da visitare
+    //cy.url().should("include", "localhost:3005");
   });
 
   // Chiusura del Banner policy
@@ -235,5 +239,21 @@ describe("Sezione 'Apri il tuo negozio'", function () {
     cy.get('[data-test="product-list"]')
       .find('[data-test="ProductsList__2"]')
       .click({ force: true });
+  });
+  describe("Iscrizione alla Newsletter", function () {
+    it("Iscrivo un utente già registrato", function () {
+      cy.get('[data-test="NewsletterSignup"]')
+        .find('[name="email"]')
+        .type("kenshiro@getnada.com")
+        .should("have.value", "kenshiro@getnada.com");
+  
+      cy.get('[type="checkbox"]').check();
+  
+      cy.get('[data-test="PolicyModal_Accept"]').click({ force: true });
+  
+      cy.get('[data-test="NewsletterSignup__sorForm"]')
+        .submit()
+        .should("contain", "Utente già registrato alla nostra newsletter");
+    });
   });
 });
