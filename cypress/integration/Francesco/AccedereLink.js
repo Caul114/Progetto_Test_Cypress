@@ -6,6 +6,10 @@ describe("HomePage", function () {
     // cy.url().should("include", "www.shop-o-rama.it");
     cy.visit("https://sor-fe-staging.herokuapp.com/"); // url da visitare
     cy.url().should("include", "sor-fe-staging.herokuapp.com/");
+    
+    // da molti più errori se si utilizza il codice localhost
+    //cy.visit("http://localhost:3005/"); // url da visitare
+    //cy.url().should("include", "localhost:3005");
   });
 
   // Chiusura del Banner policy
