@@ -265,4 +265,12 @@ describe("Footer", function () {
       cy.get('[data-test="LogoLink_Header"]').click({ force: true });
     });
 });
+
+it("Guida per artigiani digitali", function () {
+  cy.get('[data-test="Guida per artigiani digitali"]').click({
+    force: true
+  });
+  cy.url().should("include", "/guida-per-artigiani-digitali");
+  cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+});
 });
