@@ -363,3 +363,17 @@ describe("Note legali", function () {
     cy.get('[data-test="LogoLink_Header"]').click({ force: true });
   });
 });
+
+describe("Social", function () {
+  it("Instagram", function () {
+    cy.get('[data-test="Footer Instagram"]').click({ force: true });
+  });
+
+  it("Facebook", function () {
+    cy.get('[data-test="Footer Instagram"]').click({ force: true });
+  });
+
+  it("Linkedin", function () {
+    cy.get('[data-test="Footer Linkedin"]').click({ force: true });
+  });
+});
