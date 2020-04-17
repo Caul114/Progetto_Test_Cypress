@@ -257,3 +257,20 @@ describe("Sezione 'Apri il tuo negozio'", function () {
     });
   });
 });
+describe("Footer", function () {
+  describe("Guadagna con noi", function () {
+    it("Vendi su Shop-o-rama", function () {
+      cy.get('[data-test="Vendi su Shop-o-rama"]').click({ force: true });
+      cy.url().should("include", "/vendi-su-shoporama");
+      cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+    });
+});
+
+it("Guida per artigiani digitali", function () {
+  cy.get('[data-test="Guida per artigiani digitali"]').click({
+    force: true
+  });
+  cy.url().should("include", "/guida-per-artigiani-digitali");
+  cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+});
+});
