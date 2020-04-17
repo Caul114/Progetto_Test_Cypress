@@ -8,7 +8,7 @@ describe('Logging In - XHR Web Form', function () {
 
         it('successfully logs in', () => {
 
-            cy.visit('https://sor-fe-staging.herokuapp.com/')
+            cy.visit('http://localhost:3005/')
 
             cy.contains('Accedi').click({ force: true });
             cy.get('[data-test="LoginForm"]').find('[data-test="email"]').type(emailb)
