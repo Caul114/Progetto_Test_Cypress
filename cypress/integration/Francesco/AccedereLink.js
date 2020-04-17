@@ -344,3 +344,22 @@ it("Footer logo Shop-o-rama", function () {
   cy.get('[data-test="homepage di Shop-o-rama"]').click({ force: true });
 });
 });
+describe("Note legali", function () {
+  it("Cookies", function () {
+    cy.get('[data-test="cookies"]').click({ force: true });
+    cy.url().should("include", "/cookie");
+    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+  });
+
+  it("Legale", function () {
+    cy.get('[data-test="legale"]').click({ force: true });
+    cy.url().should("include", "/legale");
+    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+  });
+
+  it("Privacy", function () {
+    cy.get('[data-test="privacy"]').click({ force: true });
+    cy.url().should("include", "/politica-sulla-privacy");
+    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+  });
+});
