@@ -23,11 +23,14 @@ describe("HomePage", function () {
   });
   //commento di prova
 describe("Root Categories", function () {
-    it("Abbigliamento e Accessori", function () {
-      cy.contains("Abbigliamento e accessori").click({ force: true });
-      cy.wait(2000);
-      cy.url().should("include", "/categorie/abbigliamento-e-accessori");
+  it("Abbigliamento e accessori", function () {
+    cy.get('[data-test="FeaturedCategory__0"]').click({
+      force: true
     });
+    cy.url().should("include", "/categorie/abbigliamento");
+    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+  });
+
     it("Benessere", function () {
       cy.contains("Benessere").click({ force: true });
       cy.wait(2000);
@@ -44,57 +47,6 @@ describe("Root Categories", function () {
       cy.wait(2000);
       cy.url().should("include", "categorie/arte");
     });
-        
-
-});
-//commento di prova
-describe("Root Categories", function () {
-  it("Abbigliamento e Accessori", function () {
-    cy.contains("Abbigliamento e accessori").click({ force: true });
-    cy.wait(2000);
-    cy.url().should("include", "/categorie/abbigliamento-e-accessori");
-  });
-  it("Benessere", function () {
-    cy.contains("Benessere").click({ force: true });
-    cy.wait(2000);
-    cy.url().should("include", "/categorie/benessere");
-  });
-  it("Arredamento", function () {
-    cy.contains("Arredamento").click({ force: true });
-    cy.wait(2000);
-    cy.url().should("include", "/categorie/arredamento");
-  });
-
-  it("Arte", function () {
-    cy.contains("Arte").click({ force: true });
-    cy.wait(2000);
-    cy.url().should("include", "categorie/arte");
-  });
-
-
-  it("Infanzia", function () {
-    cy.contains("Infanzia").click({ force: true });
-    cy.wait(2000);
-    cy.url().should("include", "/categorie/infanzia");
-  });
-
-  it("Alimentari", function () {
-    cy.contains("Alimentari").click({ force: true });
-    cy.wait(2000);
-    cy.url().should("include", "/categorie/alimentari");
-  });
-
-  it("Magazine", function () {
-    cy.contains("Magazine").click({ force: true });
-    cy.wait(2000);
-    cy.url().should("include", "/magazine");
-  });
-
-  it("Idee Regalo", function () {
-    cy.contains("Idee Regalo").click({ force: true });
-    cy.wait(2000);
-    cy.url().should("include", "/idee-regalo");
-  });
 
 });
 
