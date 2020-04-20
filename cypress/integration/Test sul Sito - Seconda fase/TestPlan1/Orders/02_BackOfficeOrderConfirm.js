@@ -2,7 +2,7 @@
 
 describe('SOR accept the Order', function () {
     const email = 'luca@shop-o-rama.it'
-    const password = 'Banana'
+    const password = 'Banana{enter}'
 
     const inDashboard = () => {
         it('control dashboard', () => {
@@ -16,7 +16,6 @@ describe('SOR accept the Order', function () {
         cy.visit('https://staging.shop-o-rama.it//admin/login')
         cy.get('input[name=email]').type(email)
         cy.get('input[name=password]').type(password)
-        cy.get('input[type=submit]').click({ force: true });
         inDashboard()
 
         // Vado negli pagina Ordini
