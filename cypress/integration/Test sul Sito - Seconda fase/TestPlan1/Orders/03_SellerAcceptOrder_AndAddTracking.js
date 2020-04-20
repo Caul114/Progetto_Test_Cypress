@@ -2,8 +2,8 @@
 
 describe("Login as Buyer", function () {
 
-    const emails = 'seller1@getnada.com'
-    const passwords = 'Password1'
+    const email = 'seller@shop-o-rama.it'
+    const password = 'Password1@'
 
     it("Visit HomePage", function () {
         cy.visit("http://localhost:3005/"); // url da visitare
@@ -21,18 +21,12 @@ describe("Login as Buyer", function () {
 
     it("Login as Seller", function () {      // Login come Seller
         cy.get('[data-test="LoginForm"]').find('[data-test="email"]')
-            .type(emails)
-            .should("have.value", "seller1@getnada.com");
+            .type(email)
+            .should("have.value", "seller@shop-o-rama.it");
 
         cy.get('[data-test="LoginForm"]').find('[data-test="password"]')
-            .type(passwords)
-            .should("have.value", "Password1");
-
-        cy.get("button")
-            .contains("Invia")
-            .click({ force: true });
-
-        // cy.wait(4000);
+            .type(password)
+            .should("have.value", "Password1@");
     });
 });
 
