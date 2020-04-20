@@ -1,15 +1,11 @@
-describe("HomePage", function () {
-  it("Visit HomePage - it successfully loads", function () {
-      cy.visit("/")
-      cy.wait(2000);
+describe("Products section - Our bestsellers", function () {
+  beforeEach(() => {
+    cy.visit("http://localhost:3005/");
+  });
 
-      describe("Sezione Prodotti - I nostri BestSeller", function () {
-        it("Prodotto 1", function () {
-            cy.get('[data-test="LogoLink_Header"]').click({ force: true });
-            cy.get('[data-test="featured-product"]')
-                .find('[data-test="ProductsList__0"]')
-                .click({ force: true });
-        });
-      });
+
+  it("Logo Shop-o-rama", function () {
+    cy.get('[data-test="LogoLink_Header"]').click({ force: true }); // Logo di Shop-o-rama
+    cy.url().should("include", "localhost:3005");
   });
 });
