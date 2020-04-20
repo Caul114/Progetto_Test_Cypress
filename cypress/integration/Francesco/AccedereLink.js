@@ -22,12 +22,19 @@ describe("HomePage", function () {
     cy.url().should("include", "herokuapp");
   });
   //commento di prova
+  
+describe("Root Categories", function () {
+  it("Abbigliamento e accessori", function () {
+    cy.get('[data-test="FeaturedCategory__0"]').click({
+      force: true
+
   describe("Root Categories", function () {
     it("Abbigliamento e Accessori", function () {
       cy.contains("Abbigliamento e accessori").click({ force: true });
       cy.wait(2000);
       cy.url().should("include", "/categorie/abbigliamento-e-accessori");
-    });
+
+
     it("Benessere", function () {
       cy.contains("Benessere").click({ force: true });
       cy.wait(2000);
@@ -44,7 +51,6 @@ describe("HomePage", function () {
       cy.wait(2000);
       cy.url().should("include", "categorie/arte");
     });
-
 
   });
   //commento di prova
@@ -89,6 +95,7 @@ describe("HomePage", function () {
       cy.wait(2000);
       cy.url().should("include", "/magazine");
     });
+
 
     it("Idee Regalo", function () {
       cy.contains("Idee Regalo").click({ force: true });
