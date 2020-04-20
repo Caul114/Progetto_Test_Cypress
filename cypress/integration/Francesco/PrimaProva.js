@@ -1,15 +1,14 @@
 describe("HomePage", function () {
-  it("Visit HomePage - it successfully loads", function () {
-      cy.visit("/")
-      cy.wait(2000);
-
-      describe("Sezione Prodotti - I nostri BestSeller", function () {
-        it("Prodotto 1", function () {
-            cy.get('[data-test="LogoLink_Header"]').click({ force: true });
-            cy.get('[data-test="featured-product"]')
-                .find('[data-test="ProductsList__0"]')
-                .click({ force: true });
-        });
-      });
+  it("Visit HomePage", function () {
+    // cy.visit("localhost:3005/"); // url da visitare
+    // cy.url().should("include", "localhost:3005");
+    // cy.visit("https://www.shop-o-rama.it/"); // url da visitare
+    // cy.url().should("include", "www.shop-o-rama.it");
+    cy.visit("https://sor-fe-staging.herokuapp.com/"); // url da visitare
+    cy.url().should("include", "sor-fe-staging.herokuapp.com/");
+    
+    // da molti più errori se si utilizza il codice localhost
+    //cy.visit("http://localhost:3005/"); // url da visitare
+    //cy.url().should("include", "localhost:3005");
   });
 });
