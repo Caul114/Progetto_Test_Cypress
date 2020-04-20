@@ -2,13 +2,12 @@
 
 describe("Products section - Our bestsellers", function () {
   beforeEach(() => {
-    cy.visit("/");
-    cy.url().should("include", "localhost:3005");
-    cy.wait(2000);
+    cy.visit("http://localhost:3005/");
   });
 
 
-  it("Abbigliamento e Accessori", function () {
-    cy.get('[data-test="Article__0"]').click({ force: true });
+  it("Logo Shop-o-rama", function () {
+    cy.get('[data-test="LogoLink_Header"]').click({ force: true }); // Logo di Shop-o-rama
+    cy.url().should("include", "localhost:3005");
   });
 });
