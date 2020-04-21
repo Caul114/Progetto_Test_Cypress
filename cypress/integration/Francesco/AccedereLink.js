@@ -26,15 +26,8 @@ describe("HomePage", function () {
 describe("Root Categories", function () {
   it("Abbigliamento e accessori", function () {
     cy.get('[data-test="FeaturedCategory__0"]').click({
-      force: true
-
-  describe("Root Categories", function () {
-    it("Abbigliamento e Accessori", function () {
-      cy.contains("Abbigliamento e accessori").click({ force: true });
-      cy.wait(2000);
-      cy.url().should("include", "/categorie/abbigliamento-e-accessori");
-
-
+      force: true})
+      
     it("Benessere", function () {
       cy.contains("Benessere").click({ force: true });
       cy.wait(2000);
@@ -45,6 +38,9 @@ describe("Root Categories", function () {
       cy.wait(2000);
       cy.url().should("include", "/categorie/arredamento");
     });
+    cy.url().should("include", "/categorie/?categories_name=abbigliamento");
+    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+  });
 
     it("Arte", function () {
       cy.contains("Arte").click({ force: true });
@@ -368,19 +364,5 @@ describe("Note legali", function () {
     cy.get('[data-test="privacy"]').click({ force: true });
     cy.url().should("include", "/politica-sulla-privacy");
     cy.get('[data-test="LogoLink_Header"]').click({ force: true });
-  });
-});
-
-describe("Social", function () {
-  it("Instagram", function () {
-    cy.get('[data-test="Footer Instagram"]').click({ force: true });
-  });
-
-  it("Facebook", function () {
-    cy.get('[data-test="Footer Instagram"]').click({ force: true });
-  });
-
-  it("Linkedin", function () {
-    cy.get('[data-test="Footer Linkedin"]').click({ force: true });
   });
 });
