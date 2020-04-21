@@ -27,7 +27,7 @@ describe("Root Categories", function () {
     cy.get('[data-test="FeaturedCategory__0"]').click({
       force: true
     });
-    cy.url().should("include", "/categorie/abbigliamento");
+    cy.url().should("include", "/categorie/?categories_name=abbigliamento");
     cy.get('[data-test="LogoLink_Header"]').click({ force: true });
   });
 
