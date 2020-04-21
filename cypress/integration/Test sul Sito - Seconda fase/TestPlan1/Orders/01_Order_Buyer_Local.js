@@ -1,8 +1,8 @@
 // Accedere come Buyer ed effettuare l'acquisto, poi fare Logout
 
 describe("Login as Buyer", function () {
-    const emailb = 'buyer@shop-o-rama.it'
-    const passwordb = 'Password1@{enter}'
+    const email = 'buyer@shop-o-rama.it'
+    const password = 'Password1@{enter}'
 
 
     it("Login as Buyer and place a order", function () {
@@ -17,11 +17,11 @@ describe("Login as Buyer", function () {
         cy.loginToSite(email, password)                                     // Verificare che il percorso sia corretto
 
         cy.get('[data-test="LoginForm"]').find('[data-test="email"]')       // Aggiungere email e password
-            .type(emailb)
+            .type(email)
             .should("have.value", "buyer@shop-o-rama.it");
 
         cy.get('[data-test="LoginForm"]').find('[data-test="password"]')
-            .type(passwordb)
+            .type(password)
             .should("have.value", "Password1@");
         cy.wait(40000);
 
