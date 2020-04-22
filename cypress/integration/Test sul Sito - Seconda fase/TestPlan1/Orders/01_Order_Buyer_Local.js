@@ -1,80 +1,56 @@
-// Accedere come Buyer
+// Accedere come Buyer ed effettuare l'acquisto, poi fare Logout
 
 describe("Login as Buyer", function () {
-    const emailb = 'buyer1@getnada.com'
-    const passwordb = 'Password1'
+    const email = 'buyer@shop-o-rama.it'
+    const password = 'Password1@{enter}'
 
-    it("Visit HomePage", function () {
-        cy.visit("http://localhost:3005/"); // url da visitare
+
+    it("Login as Buyer and place a order", function () {
+
+        cy.visit("http://localhost:3005/");                                 // url da visitare
         cy.url().should("include", "localhost:3005");
-    });
 
-    it("Closure of the Privacy Banner", function () {       // Chiusura del Banner policy
-        cy.get('[data-test="close_cookie"]').click({ force: true });
-        // cy.wait(5000);
-    });
+        cy.get('[data-test="close_cookie"]').click({ force: true });        // Chiusura del Banner policy
 
-    it("Login Page", function () {      // Login con 'Accedi'
-        cy.contains('Accedi').click({ force: true });
-    });
+        cy.contains('Accedi').click({ force: true });                       // Andare nella pagina di Login
 
-    it("Login as Buyer", function () {      // Login come Buyer
-        cy.get('[data-test="LoginForm"]').find('[data-test="email"]')
-            .type(emailb)
-            .should("have.value", "buyer1@getnada.com");
+        cy.loginToSite(email, password)                                     // Verificare che il percorso sia corretto
+
+        cy.get('[data-test="LoginForm"]').find('[data-test="email"]')       // Aggiungere email e password
+            .type(email)
+            .should("have.value", "buyer@shop-o-rama.it");
 
         cy.get('[data-test="LoginForm"]').find('[data-test="password"]')
-            .type(passwordb)
-            .should("have.value", "Password1");
+            .type(password)
+            .should("have.value", "Password1@");
+        cy.wait(40000);
 
-        cy.get("button")
-            .contains("Invia")
-            .click({ force: true });
-
-        // cy.wait(4000);
-    });
-});
-
-// Cercare un prodotto di seller1@getnada.com
-
-describe("Purchase of a product", function () {
-    it("Search for 'seller 1' product", function () {      // search, prodotti di seller 1
-        cy.get('[data-test="main-search"]')
-            .type('seller 1').should('have.value', 'seller 1');
+        cy.get('[data-test="main-search"]')                                 // Cercare Prodotto 1
+            .type('prodotto').should('have.value', 'prodotto');
         cy.get('[data-test="search_button"]').click({ force: true });
-        cy.url().should("include", "q=seller%201&page=1");
-    });
+        cy.url().should("include", "q=prodotto&page=1");
+        cy.wait(10000);
 
-    it("Choose 'Prova 1", function () {     //  scelgo il prodotto Prova 1
-        cy.get('[data-test="ProductCard__ProdTitle-3751"]')
+        cy.get('[data-test="ProductCard__ProdTitle-44"]')                   // Aprire il Prodotto 1
             .click({ force: true });
-        cy.url().should("include", "prova-1");
-    });
+        cy.url().should("include", "prodotto-uno");
 
-    it("Load the product on the cart", function () {     //  Carico il prodotto sul carrello
-        cy.get('[data-test="add-to-cart"]')
+        cy.get('[data-test="add-to-cart"]')                                 // Aggiungerlo al Cart
             .click({ force: true });
-    });
-});
 
-// Usando un indirizzo di spedizione già presente e una CC già presente, fare l'acquisto
-
-describe("Buy a product", function () {
-    it("The cart", function () {     // Vado nel carrello
-        cy.get('[data-test="Shopping-cart"]')
+        cy.get('[data-test="Shopping-cart"]')                               // Andare nel Carrello
             .click({ force: true });
         cy.url().should("include", "carrello");
-    });
+        // cy.wait(5000);
 
-    it("Buy the product", function () {     //  Effetttuo l'acquisto
-        cy.get('[data-test="order"]')
+        cy.get('[data-test="order"]')                                       // Procedere con l'acquisto
             .click({ force: true });
     });
 
-    it("!!! In case of error !!!", function () {     //  Chiudo il modale di errore
-        cy.get('.ConfirmModal_ModalBoxAccept__1hYwL')
-            .click({ force: true });
-    });
+    // it("!!! In case of error !!!", function () {     //  Chiudo il modale di errore
+    //     cy.get('.ConfirmModal_ModalBoxAccept__1hYwL')
+    //         .click({ force: true });
+    // });
 });
 
 // Logout Buyer
