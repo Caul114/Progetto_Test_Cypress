@@ -47,7 +47,6 @@ describe("Root Categories", function () {
       cy.url().should("include", "/categorie/arredamento");
     });
   });
-  });
   it("Arte", function () {
     it("Arte", function () {
       cy.contains("Arte").click({ force: true });
@@ -83,6 +82,7 @@ describe("Root Categories", function () {
       cy.url().should("include", "/idee-regalo");
     });
   });
+});
 
   describe("Top Banner", function () {
     it("Left Picture", function () {
