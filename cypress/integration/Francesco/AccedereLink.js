@@ -21,9 +21,8 @@ describe("HomePage", function () {
     cy.get('[data-test="LogoLink_Header"]').click({ force: true }); // Logo di Shop-o-rama
     cy.url().should("include", "herokuapp");
   });
-
-  //commento di prova
-  describe("Root Categories", function () {
+  
+describe("Root Categories", function () {
     it("Abbigliamento e Accessori", function () {
       it("Abbigliamento e Accessori", function () {
         cy.contains("Abbigliamento e accessori").click({ force: true });
@@ -31,6 +30,8 @@ describe("HomePage", function () {
         cy.url().should("include", "/categorie/abbigliamento-e-accessori");
       })
     });
+
+
     it("Benessere", function () {
       it("Benessere", function () {
         cy.contains("Benessere").click({ force: true });
@@ -38,6 +39,7 @@ describe("HomePage", function () {
         cy.url().should("include", "/categorie/benessere");
       });
     });
+
     it("Arredamento", function () {
       it("Arredamento", function () {
         cy.contains("Arredamento").click({ force: true });
@@ -63,6 +65,7 @@ describe("HomePage", function () {
       });
     });
 
+
     it("Alimentari", function () {
       it("Alimentari", function () {
         cy.contains("Alimentari").click({ force: true });
@@ -70,15 +73,14 @@ describe("HomePage", function () {
         cy.url().should("include", "/categorie/alimentari");
       });
     });
-
-    it("Magazine", function () {
-      it("Magazine", function () {
-        cy.contains("Magazine").click({ force: true });
-        cy.wait(2000);
-        cy.url().should("include", "/magazine");
-      });
   
-    });
+  it("Magazine", function () {
+    it("Magazine", function () {
+      cy.contains("Magazine").click({ force: true });
+      cy.wait(2000);
+      cy.url().should("include", "/magazine");
+    });  
+  });
     it("Idee Regalo", function () {
       it("Idee Regalo", function () {
         cy.contains("Idee Regalo").click({ force: true });
@@ -86,8 +88,9 @@ describe("HomePage", function () {
         cy.url().should("include", "/idee-regalo");
       });
     });
-
   });
+
+  
 
   describe("Top Banner", function () {
     it("Left Picture", function () {
