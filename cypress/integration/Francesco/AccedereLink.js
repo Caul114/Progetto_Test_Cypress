@@ -23,52 +23,57 @@ describe("HomePage", function () {
   });
   
 describe("Root Categories", function () {
-  it("Abbigliamento e accessori", function () {
     it("Abbigliamento e Accessori", function () {
-      cy.contains("Abbigliamento e accessori").click({ force: true });
-      cy.wait(2000);
-      cy.url().should("include", "/categorie/abbigliamento-e-accessori");
+      it("Abbigliamento e Accessori", function () {
+        cy.contains("Abbigliamento e accessori").click({ force: true });
+        cy.wait(2000);
+        cy.url().should("include", "/categorie/abbigliamento-e-accessori");
+      })
     });
-   
-  });
 
-  it("Benessere", function () {
+
     it("Benessere", function () {
-      cy.contains("Benessere").click({ force: true });
-      cy.wait(2000);
-      cy.url().should("include", "/categorie/benessere");
+      it("Benessere", function () {
+        cy.contains("Benessere").click({ force: true });
+        cy.wait(2000);
+        cy.url().should("include", "/categorie/benessere");
+      });
     });
 
-  });
-  it("Arredamento", function () {
     it("Arredamento", function () {
-      cy.contains("Arredamento").click({ force: true });
-      cy.wait(2000);
-      cy.url().should("include", "/categorie/arredamento");
+      it("Arredamento", function () {
+        cy.contains("Arredamento").click({ force: true });
+        cy.wait(2000);
+        cy.url().should("include", "/categorie/arredamento");
+      });
     });
-  });
-  });
-  it("Arte", function () {
+
     it("Arte", function () {
-      cy.contains("Arte").click({ force: true });
-      cy.wait(2000);
-      cy.url().should("include", "categorie/arte");
+      it("Arte", function () {
+        cy.contains("Arte").click({ force: true });
+        cy.wait(2000);
+        cy.url().should("include", "categorie/arte");
+      });
     });
-  });
-  it("Infanzia", function () {
+
+
     it("Infanzia", function () {
-      cy.contains("Infanzia").click({ force: true });
-      cy.wait(2000);
-      cy.url().should("include", "/categorie/infanzia");
+      it("Infanzia", function () {
+        cy.contains("Infanzia").click({ force: true });
+        cy.wait(2000);
+        cy.url().should("include", "/categorie/infanzia");
+      });
     });
-  });
-  it("Alimentari", function () {
+
+
     it("Alimentari", function () {
-      cy.contains("Alimentari").click({ force: true });
-      cy.wait(2000);
-      cy.url().should("include", "/categorie/alimentari");
+      it("Alimentari", function () {
+        cy.contains("Alimentari").click({ force: true });
+        cy.wait(2000);
+        cy.url().should("include", "/categorie/alimentari");
+      });
     });
-  });
+  
   it("Magazine", function () {
     it("Magazine", function () {
       cy.contains("Magazine").click({ force: true });
@@ -76,13 +81,16 @@ describe("Root Categories", function () {
       cy.url().should("include", "/magazine");
     });  
   });
-  it("Idee Regalo", function () { 
     it("Idee Regalo", function () {
-      cy.contains("Idee Regalo").click({ force: true });
-      cy.wait(2000);
-      cy.url().should("include", "/idee-regalo");
+      it("Idee Regalo", function () {
+        cy.contains("Idee Regalo").click({ force: true });
+        cy.wait(2000);
+        cy.url().should("include", "/idee-regalo");
+      });
     });
   });
+
+  
 
   describe("Top Banner", function () {
     it("Left Picture", function () {
