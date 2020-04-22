@@ -1,9 +1,10 @@
-// Accedere come Seller
+// Accedere su Shop-o-rama come Seller
 
-describe("Login as Buyer", function () {
+import "../../../../support/index"
 
-    const email = 'seller@shop-o-rama.it'
-    const password = 'Password1@'
+describe("The Seller accepts the Order and adds the Tracking ", function () {
+    const email = 'seller2@shop-o-rama.it'
+    const password = 'Password1@{enter}'
 
     it("Visit HomePage", function () {
         cy.visit("http://localhost:3005/"); // url da visitare
@@ -15,33 +16,57 @@ describe("Login as Buyer", function () {
         // cy.wait(5000);
     });
 
-    it("Login Page", function () {      // Login con 'Accedi'
-        cy.contains('Accedi').click({ force: true });
-    });
+    it("Login as Seller", function () {
 
-    it("Login as Seller", function () {      // Login come Seller
+        // Login come seller2@getnada.com
+        cy.contains('Accedi').click({ force: true });
+
+        cy.loginToSite(email, password)
+
         cy.get('[data-test="LoginForm"]').find('[data-test="email"]')
             .type(email)
-            .should("have.value", "seller@shop-o-rama.it");
-
         cy.get('[data-test="LoginForm"]').find('[data-test="password"]')
             .type(password)
-            .should("have.value", "Password1@");
+
+        cy.wait(40000);
+
+        // Entrare negli Ordini
+        cy.get('[data-test="Order"]').click({ force: true });
+        cy.wait(10000);
+
+        // Richiamare l'ultimo Ordine fatto
+        cy.get('[data-test="ordersResultElement"]').first().click({ force: true });
+        cy.wait(5000);
+
+        // Accettare l'ultimo Ordine fatto
+        cy.get('[data-test="accept-Order"]')
+            .children('img')
+            .click({ force: true });
+        cy.wait(5000);
+
+        // Aprire il Modale per l'inserimento del Tracking
+        cy.get('[data-test="order-tracking-result-box"]')
+            .children('i')
+            .click({ force: true });
+        cy.wait(5000);
+
+        // Inserire il Tracking
+        cy.get('[data-test="tracking_number"]').type('BA0100404555');
+        // Salvare il Tracking
+        cy.get('[data-test="sorModal_New__bottom"]')
+            .find('[data-test="sorModalSaveButton_New"]')
+            .click({ force: true });
+
+        // // Andare nella Dashboard del Seller
+        // cy.get('[data-test="User"]')
+        //     .click({ force: true });
+        // cy.url().should("include", "modifica");
+
+        // Fare il Logout    
+        cy.get('[data-test="signout_seller"]')
+            .children('a')
+            .click({ force: true });
     });
+
 });
 
-// Logout Seller
-
-describe("Seller Logout", function () {
-    it("Go to the Dashboard Seller", function () {     // Vado nella Dashboard del Buyer
-        cy.get('[data-test="User"]')
-            .click({ force: true });
-        cy.url().should("include", "dashboard");
-    });
-
-    it("Buyer Logout", function () {     // Faccio il Logout
-        cy.get(".sorDashboardContainer")
-            .find('[data-test="signout_buyer"]')
-            .click({ force: true });
-    });
-});
