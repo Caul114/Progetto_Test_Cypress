@@ -2,14 +2,14 @@ describe("HomePage", function () {
   it("Visit HomePage", function () {
     //cy.visit("localhost:3005/"); // url da visitare
     //cy.url().should("include", "localhost:3005");
-     cy.visit("https://www.shop-o-rama.it/"); // url da visitare
-     cy.url().should("include", "www.shop-o-rama.it");
+    //  cy.visit("https://www.shop-o-rama.it/"); // url da visitare
+    //  cy.url().should("include", "www.shop-o-rama.it");
     // cy.visit("https://sor-fe-staging.herokuapp.com/"); // url da visitare
     // cy.url().should("include", "sor-fe-staging.herokuapp.com/");
 
     // da molti più errori se si utilizza il codice localhost
-    //cy.visit("http://localhost:3005/"); // url da visitare
-    //cy.url().should("include", "localhost:3005");
+    cy.visit("http://localhost:3005/"); // url da visitare
+    cy.url().should("include", "localhost:3005");
   });
 
   // Chiusura del Banner policy
@@ -19,10 +19,10 @@ describe("HomePage", function () {
   });
   it("Logo Shop-o-rama", function () {
     cy.get('[data-test="LogoLink_Header"]').click({ force: true }); // Logo di Shop-o-rama
-    cy.url().should("include", "herokuapp");
+    cy.url().should("include", "localhost:3005");
   });
-  
-describe("Root Categories", function () {
+
+  describe("Root Categories", function () {
     it("Abbigliamento e Accessori", function () {
       it("Abbigliamento e Accessori", function () {
         cy.contains("Abbigliamento e accessori").click({ force: true });
@@ -55,8 +55,8 @@ describe("Root Categories", function () {
           cy.url().should("include", "categorie/arte");
         });
       });
-  
-  
+
+
       it("Infanzia", function () {
         it("Infanzia", function () {
           cy.contains("Infanzia").click({ force: true });
@@ -64,8 +64,8 @@ describe("Root Categories", function () {
           cy.url().should("include", "/categorie/infanzia");
         });
       });
-  
-  
+
+
       it("Alimentari", function () {
         it("Alimentari", function () {
           cy.contains("Alimentari").click({ force: true });
@@ -73,14 +73,14 @@ describe("Root Categories", function () {
           cy.url().should("include", "/categorie/alimentari");
         });
       });
-    
-    it("Magazine", function () {
+
       it("Magazine", function () {
-        cy.contains("Magazine").click({ force: true });
-        cy.wait(2000);
-        cy.url().should("include", "/magazine");
-      });  
-    });
+        it("Magazine", function () {
+          cy.contains("Magazine").click({ force: true });
+          cy.wait(2000);
+          cy.url().should("include", "/magazine");
+        });
+      });
       it("Idee Regalo", function () {
         it("Idee Regalo", function () {
           cy.contains("Idee Regalo").click({ force: true });
@@ -90,25 +90,29 @@ describe("Root Categories", function () {
       });
     });
   });
+});
 
-  
 
-  describe("Top Banner", function () {
-    it("Left Picture", function () {
-      cy.get('[data-test="LogoLink_Header"]').click({ force: true });
-      cy.get('[data-test="head_header_button_search"]').click({ force: true });
-    });
-
-    it("Center Picture", function () {
-      cy.get('[data-test="LogoLink_Header"]').click({ force: true });
-      cy.get('[data-test="button_center_picture"]').click({ force: true });
-    });
-
-    it("Right Picture", function () {
-      cy.get('[data-test="LogoLink_Header"]').click({ force: true });
-      cy.get('[data-test="right_picture"]').click({ force: true });
-    });
+describe("Top Banner", function () {
+  beforeEach(() => {
+    cy.visit("http://localhost:3005/");
+    cy.url().should("include", "localhost:3005");
   });
+  it("Left Picture", function () {
+    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+    cy.get('[data-test="head_header_button_search"]').click({ force: true });
+  });
+
+  it("Center Picture", function () {
+    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+    cy.get('[data-test="button_center_picture"]').click({ force: true });
+  });
+  // Questo CTA non esiste più
+  // it("Right Picture", function () {
+  //   cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+  //   cy.get('[data-test="right_picture"]').click({ force: true });
+  // });
+});
 
 
 describe("Products section - Our bestsellers", function () {
@@ -259,15 +263,15 @@ describe("Footer", function () {
       cy.url().should("include", "/vendi-su-shoporama");
       cy.get('[data-test="LogoLink_Header"]').click({ force: true });
     });
-});
-
-it("Guida per artigiani digitali", function () {
-  cy.get('[data-test="Guida per artigiani digitali"]').click({
-    force: true
   });
-  cy.url().should("include", "/guida-per-artigiani-digitali");
-  cy.get('[data-test="LogoLink_Header"]').click({ force: true });
-});
+
+  it("Guida per artigiani digitali", function () {
+    cy.get('[data-test="Guida per artigiani digitali"]').click({
+      force: true
+    });
+    cy.url().should("include", "/guida-per-artigiani-digitali");
+    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+  });
 
   describe("Piacere di conoscerci", function () {
     it("Lavora con noi", function () {
@@ -296,48 +300,48 @@ it("Guida per artigiani digitali", function () {
       cy.url().should("include", "/condizioni-generali-di-vendita");
       cy.get('[data-test="LogoLink_Header"]').click({ force: true });
     });
-});
-it("Condizioni e termini generali", function () {
-  cy.get('[data-test="Condizioni e termini generali"]').click({
-    force: true
   });
-  cy.url().should("include", "/condizioni-e-termini-generali");
-  cy.get('[data-test="LogoLink_Header"]').click({ force: true });
-});
-it("Programma di protezione", function () {
-  cy.get('[data-test="Programma di protezione"]').click({ force: true });
-  cy.url().should("include", "/programma-di-protezione");
-  cy.get('[data-test="LogoLink_Header"]').click({ force: true });
-});
+  it("Condizioni e termini generali", function () {
+    cy.get('[data-test="Condizioni e termini generali"]').click({
+      force: true
+    });
+    cy.url().should("include", "/condizioni-e-termini-generali");
+    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+  });
+  it("Programma di protezione", function () {
+    cy.get('[data-test="Programma di protezione"]').click({ force: true });
+    cy.url().should("include", "/programma-di-protezione");
+    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+  });
 
-it("Pagamenti", function () {
-  cy.get('[data-test="Pagamenti"]').click({ force: true });
-  cy.url().should("include", "/pagamenti");
-  cy.get('[data-test="LogoLink_Header"]').click({ force: true });
-});
-it("Spedizioni", function () {
-  cy.get('[data-test="Spedizioni"]').click({ force: true });
-  cy.url().should("include", "/spedizioni");
-  cy.get('[data-test="LogoLink_Header"]').click({ force: true });
-});
+  it("Pagamenti", function () {
+    cy.get('[data-test="Pagamenti"]').click({ force: true });
+    cy.url().should("include", "/pagamenti");
+    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+  });
+  it("Spedizioni", function () {
+    cy.get('[data-test="Spedizioni"]').click({ force: true });
+    cy.url().should("include", "/spedizioni");
+    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+  });
 });
 
 describe("Bisogno di aiuto?", function () {
-it("Contatti", function () {
-  cy.get('[data-test="Contatti"]').click({ force: true });
-  cy.url().should("include", "/contatti");
-  cy.get('[data-test="LogoLink_Header"]').click({ force: true });
-});
-it("Guide e tutorials", function () {
-  cy.get('[data-test="Guide e tutorials"]').click({ force: true });
-  cy.get('[data-test="LogoLink_Header"]').click({ force: true });
-});
+  it("Contatti", function () {
+    cy.get('[data-test="Contatti"]').click({ force: true });
+    cy.url().should("include", "/contatti");
+    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+  });
+  it("Guide e tutorials", function () {
+    cy.get('[data-test="Guide e tutorials"]').click({ force: true });
+    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+  });
 });
 
 describe("Footer logo Shop-o-rama", function () {
-it("Footer logo Shop-o-rama", function () {
-  cy.get('[data-test="homepage di Shop-o-rama"]').click({ force: true });
-});
+  it("Footer logo Shop-o-rama", function () {
+    cy.get('[data-test="homepage di Shop-o-rama"]').click({ force: true });
+  });
 });
 describe("Note legali", function () {
   it("Cookies", function () {
