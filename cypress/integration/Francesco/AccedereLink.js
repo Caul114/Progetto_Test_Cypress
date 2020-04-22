@@ -47,7 +47,12 @@ describe("Root Categories", function () {
         cy.url().should("include", "/categorie/arredamento");
       });
     });
+<<<<<<< HEAD
+  });
+  it("Arte", function () {
+=======
 
+>>>>>>> e64cd5d1b5bdd28a419da366604e00512536986b
     it("Arte", function () {
       it("Arte", function () {
         cy.contains("Arte").click({ force: true });
@@ -89,6 +94,7 @@ describe("Root Categories", function () {
       });
     });
   });
+});
 
   
 
