@@ -55,33 +55,33 @@ describe("Root Categories", function () {
       cy.url().should("include", "categorie/arte");
     });
   });
-  //commento di prova
-  describe("Root Categories", function () {
+  it("Infanzia", function () {
     it("Infanzia", function () {
       cy.contains("Infanzia").click({ force: true });
       cy.wait(2000);
       cy.url().should("include", "/categorie/infanzia");
     });
-
+  });
+  it("Alimentari", function () {
     it("Alimentari", function () {
       cy.contains("Alimentari").click({ force: true });
       cy.wait(2000);
       cy.url().should("include", "/categorie/alimentari");
     });
-
+  });
+  it("Magazine", function () {
     it("Magazine", function () {
       cy.contains("Magazine").click({ force: true });
       cy.wait(2000);
       cy.url().should("include", "/magazine");
-    });
-
-
+    });  
+  });
+  it("Idee Regalo", function () { 
     it("Idee Regalo", function () {
       cy.contains("Idee Regalo").click({ force: true });
       cy.wait(2000);
       cy.url().should("include", "/idee-regalo");
     });
-
   });
 
   describe("Top Banner", function () {
