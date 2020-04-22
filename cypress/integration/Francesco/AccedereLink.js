@@ -47,55 +47,50 @@ describe("Root Categories", function () {
         cy.url().should("include", "/categorie/arredamento");
       });
     });
-<<<<<<< HEAD
-  });
-  it("Arte", function () {
-=======
-
->>>>>>> e64cd5d1b5bdd28a419da366604e00512536986b
     it("Arte", function () {
       it("Arte", function () {
-        cy.contains("Arte").click({ force: true });
-        cy.wait(2000);
-        cy.url().should("include", "categorie/arte");
+        it("Arte", function () {
+          cy.contains("Arte").click({ force: true });
+          cy.wait(2000);
+          cy.url().should("include", "categorie/arte");
+        });
       });
-    });
-
-
-    it("Infanzia", function () {
-      it("Infanzia", function () {
-        cy.contains("Infanzia").click({ force: true });
-        cy.wait(2000);
-        cy.url().should("include", "/categorie/infanzia");
-      });
-    });
-
-
-    it("Alimentari", function () {
-      it("Alimentari", function () {
-        cy.contains("Alimentari").click({ force: true });
-        cy.wait(2000);
-        cy.url().should("include", "/categorie/alimentari");
-      });
-    });
   
-  it("Magazine", function () {
+  
+      it("Infanzia", function () {
+        it("Infanzia", function () {
+          cy.contains("Infanzia").click({ force: true });
+          cy.wait(2000);
+          cy.url().should("include", "/categorie/infanzia");
+        });
+      });
+  
+  
+      it("Alimentari", function () {
+        it("Alimentari", function () {
+          cy.contains("Alimentari").click({ force: true });
+          cy.wait(2000);
+          cy.url().should("include", "/categorie/alimentari");
+        });
+      });
+    
     it("Magazine", function () {
-      cy.contains("Magazine").click({ force: true });
-      cy.wait(2000);
-      cy.url().should("include", "/magazine");
-    });  
-  });
-    it("Idee Regalo", function () {
-      it("Idee Regalo", function () {
-        cy.contains("Idee Regalo").click({ force: true });
+      it("Magazine", function () {
+        cy.contains("Magazine").click({ force: true });
         cy.wait(2000);
-        cy.url().should("include", "/idee-regalo");
+        cy.url().should("include", "/magazine");
+      });  
+    });
+      it("Idee Regalo", function () {
+        it("Idee Regalo", function () {
+          cy.contains("Idee Regalo").click({ force: true });
+          cy.wait(2000);
+          cy.url().should("include", "/idee-regalo");
+        });
       });
     });
   });
-});
-
+  });
   
 
   describe("Top Banner", function () {
@@ -114,7 +109,7 @@ describe("Root Categories", function () {
       cy.get('[data-test="right_picture"]').click({ force: true });
     });
   });
-});
+
 
 describe("Products section - Our bestsellers", function () {
   beforeEach(() => {
