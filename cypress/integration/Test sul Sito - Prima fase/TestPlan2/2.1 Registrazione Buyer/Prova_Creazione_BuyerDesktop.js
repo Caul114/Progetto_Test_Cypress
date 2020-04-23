@@ -1,10 +1,10 @@
-describe("Prova Mobile", function() {
-  beforeEach(function() {
+describe("Prova Mobile", function () {
+  beforeEach(function () {
     // alias the users fixtures
     cy.fixture("example.json").as("users");
   });
 
-  it("utilize users in some way", function() {
+  it("utilize users in some way", function () {
     // access the users property
     const user = this.users[0];
 
@@ -35,7 +35,7 @@ describe("Prova Mobile", function() {
 
   // Creazione della Email @getnada
 
-  var email = firstname + lastname + "@getnada.com";
+  var email = firstname + lastname + "@shop-o-rama.it";
 
   // Creazione della Password
 
@@ -53,12 +53,12 @@ describe("Prova Mobile", function() {
 
   var password = userID_Password();
 
-  beforeEach(function() {
+  beforeEach(function () {
     cy.wrap(firstname).as("fl");
   });
 
-  describe("Accesso loggato", function() {
-    it("Accedi al sito", function() {
+  describe("Accesso loggato", function () {
+    it("Accedi al sito", function () {
       // cy.visit("https://sor-fe-staging.herokuapp.com");
       cy.visit("localhost:3005/");
 
@@ -110,7 +110,7 @@ describe("Prova Mobile", function() {
       cy.wait(2000);
     });
 
-    it("Accedi al sito della mail", function() {
+    it("Accedi al sito della mail", function () {
       cy.visit("https://getnada.com/");
       cy.log(this.fl);
       cy.log(email);

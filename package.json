@@ -1,0 +1,28 @@
+{
+  "name": "progetto_test_cypress",
+  "version": "1.0.0",
+  "description": "Progetto per testare il sito di riferimento con Cypress.io",
+  "main": "index.js",
+  "dependencies": {
+    "execa": "^3.4.0",
+    "extract-zip": "^1.7.0",
+    "minimist": "^1.2.5",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {
+    "cypress": "^4.4.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Caul114/Progetto_Test_Cypress.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Caul114/Progetto_Test_Cypress/issues"
+  },
+  "homepage": "https://github.com/Caul114/Progetto_Test_Cypress#readme"
+}
