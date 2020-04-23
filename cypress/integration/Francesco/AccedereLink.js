@@ -104,10 +104,6 @@ describe("Root Categories", function () {
       cy.get('[data-test="button_center_picture"]').click({ force: true });
     });
 
-    it("Right Picture", function () {
-      cy.get('[data-test="LogoLink_Header"]').click({ force: true });
-      cy.get('[data-test="right_picture"]').click({ force: true });
-    });
   });
 
 
