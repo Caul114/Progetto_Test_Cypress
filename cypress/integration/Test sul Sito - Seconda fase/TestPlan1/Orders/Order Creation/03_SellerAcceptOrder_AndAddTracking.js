@@ -1,10 +1,10 @@
 // Accedere su Shop-o-rama come Seller
 
-import "../../../../support/index"
+import "./../../../../../support/index"
 
 describe("The Seller accepts the Order and adds the Tracking ", function () {
-    const email = 'seller2@shop-o-rama.it'
-    const password = 'Password1@{enter}'
+    const emails = 'seller2@shop-o-rama.it'
+    const passwords = 'Password1@{enter}'
 
     it("Visit HomePage", function () {
         cy.visit("http://localhost:3005/"); // url da visitare
@@ -21,12 +21,12 @@ describe("The Seller accepts the Order and adds the Tracking ", function () {
         // Login come seller2@getnada.com
         cy.contains('Accedi').click({ force: true });
 
-        cy.loginToSite(email, password)
+        cy.loginToSiteAsSeller(emails, passwords)
 
         cy.get('[data-test="LoginForm"]').find('[data-test="email"]')
-            .type(email)
+            .type(emails)
         cy.get('[data-test="LoginForm"]').find('[data-test="password"]')
-            .type(password)
+            .type(passwords)
 
         cy.wait(40000);
 
@@ -57,13 +57,14 @@ describe("The Seller accepts the Order and adds the Tracking ", function () {
             .find('[data-test="sorModalSaveButton_New"]')
             .click({ force: true });
 
-        // // Andare nella Dashboard del Seller
-        // cy.get('[data-test="User"]')
-        //     .click({ force: true });
-        // cy.url().should("include", "modifica");
+        // Andare nella Dashboard del Seller
+        cy.get('[data-test="User"]')
+            .click({ force: true });
+        cy.url().should("include", "modifica");
 
         // Fare il Logout    
-        cy.get('[data-test="signout_seller"]')
+        cy.get('[data-test="dashboard_seller"]')
+            .find('[data-test="signout_seller"]')
             .children('a')
             .click({ force: true });
     });

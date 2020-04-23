@@ -1,6 +1,6 @@
 // Accedere come Utente nel BackOffice e effettuare le utlime operazioni sull'ordine
 
-describe('SOR accept the Order', function () {
+describe('SOR completes the Order', function () {
     // const email = 'luca@shop-o-rama.it'
     // const password = 'Banana{enter}'
 
@@ -14,7 +14,7 @@ describe('SOR accept the Order', function () {
         })
     }
 
-    it('Slow login via UI and order acceptance', () => {
+    it('Final operations on the order', () => {
         // Fare Login nella Dashboard 
         // cy.visit('https://staging.shop-o-rama.it//admin/login')
         cy.visit('http://localhost:3000/admin/login')
@@ -24,7 +24,7 @@ describe('SOR accept the Order', function () {
 
         // Andare negli pagina Ordini
         cy.contains('Orders').click({ force: true });
-        cy.wait(2000);
+        cy.wait(5000);
 
         // Trovare l'ultimo ordine fatto ed entrarci
         cy.get('table').find('td').as('order');
@@ -51,9 +51,9 @@ describe('SOR accept the Order', function () {
         cy.contains('Create invoice').click({ force: true });
         cy.wait(5000);
 
-        // // Logout dal backoffice
-        // cy.get('.caret').click({ force: true });
-        // cy.contains('Log out').click({ force: true });
-        // cy.clearCookies()       // Cancello tutti i cookies
+        // Andare negli pagina Ordini
+        cy.contains('Orders').click({ force: true });
+        cy.wait(5000);
+
     })
 })

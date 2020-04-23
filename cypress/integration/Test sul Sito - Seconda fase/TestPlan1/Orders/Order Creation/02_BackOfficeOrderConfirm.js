@@ -61,7 +61,7 @@ describe('SOR accept the Order', function () {
 
         // Vado negli pagina Ordini
         cy.contains('Orders').click({ force: true });
-        cy.wait(2000);
+        cy.wait(5000);
 
         // Trovo l'ultimo ordine fatto e ci entro
         cy.get('table').find('td').as('order');
