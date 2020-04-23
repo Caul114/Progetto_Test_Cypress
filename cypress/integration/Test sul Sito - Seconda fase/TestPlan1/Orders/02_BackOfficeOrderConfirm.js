@@ -55,5 +55,5 @@ describe('SOR accept the Order', function () {
     // cy.get('.caret').click({ force: true });
     // cy.contains('Log out').click({ force: true });
     // cy.clearCookies()       // Cancello tutti i cookies
-})
+    // })
 })
