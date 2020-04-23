@@ -90,12 +90,22 @@ describe("HomePage", function () {
       });
     });
   });
+});
 
 
 describe("Top Banner", function () {
   beforeEach(() => {
     cy.visit("http://localhost:3005/");
     cy.url().should("include", "localhost:3005");
+<<<<<<< HEAD
+  });
+  it("Left Picture", function () {
+    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+    cy.get('[data-test="head_header_button_search"]').click({ force: true });
+  });
+  });
+
+=======
   });
   it("Left Picture", function () {
     cy.get('[data-test="LogoLink_Header"]').click({ force: true });
@@ -112,6 +122,7 @@ describe("Top Banner", function () {
   //   cy.get('[data-test="right_picture"]').click({ force: true });
   // });
 });
+>>>>>>> 70b6ea632c75016cd7d2cf5606c5d4a802efe233
 
 
 describe("Products section - Our bestsellers", function () {

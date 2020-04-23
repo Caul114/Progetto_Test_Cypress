@@ -101,17 +101,8 @@ describe("Top Banner", function () {
     cy.get('[data-test="LogoLink_Header"]').click({ force: true });
     cy.get('[data-test="head_header_button_search"]').click({ force: true });
   });
-
-  it("Center Picture", function () {
-    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
-    cy.get('[data-test="button_center_picture"]').click({ force: true });
   });
-  // Questo CTA non esiste più
-  // it("Right Picture", function () {
-  //   cy.get('[data-test="LogoLink_Header"]').click({ force: true });
-  //   cy.get('[data-test="right_picture"]').click({ force: true });
-  // });
-});
+
 
 
 describe("Products section - Our bestsellers", function () {
