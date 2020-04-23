@@ -46,18 +46,35 @@ Cypress.Commands.add('loginOnBO', (email, password) => {
         })
 })
 
-Cypress.Commands.add('loginToSite', (email, password) => {
+Cypress.Commands.add('loginToSiteAsBuyer', (emailb, passwordb) => {
     Cypress.log({
         name: 'login to Site',
-        message: `${email} | ${password}`,
+        message: `${emailb} | ${passwordb}`,
     })
 
     return cy.request({
         method: 'POST',
         url: 'http://localhost:3005/',
         body: {
-            email,
-            password,
+            emailb,
+            passwordb,
+        },
+        failOnStatusCode: false
+    })
+})
+
+Cypress.Commands.add('loginToSiteAsSeller', (emails, passwords) => {
+    Cypress.log({
+        name: 'login to Site',
+        message: `${emails} | ${passwords}`,
+    })
+
+    return cy.request({
+        method: 'POST',
+        url: 'http://localhost:3005/',
+        body: {
+            emails,
+            passwords,
         },
         failOnStatusCode: false
     })
