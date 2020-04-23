@@ -90,7 +90,6 @@ describe("HomePage", function () {
       });
     });
   });
-});
 
 
 describe("Top Banner", function () {
