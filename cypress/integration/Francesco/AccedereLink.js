@@ -2,14 +2,14 @@ describe("HomePage", function () {
   it("Visit HomePage", function () {
     //cy.visit("localhost:3005/"); // url da visitare
     //cy.url().should("include", "localhost:3005");
-    //  cy.visit("https://www.shop-o-rama.it/"); // url da visitare
-    //  cy.url().should("include", "www.shop-o-rama.it");
+      cy.visit("https://www.shop-o-rama.it/"); // url da visitare
+      cy.url().should("include", "www.shop-o-rama.it");
     // cy.visit("https://sor-fe-staging.herokuapp.com/"); // url da visitare
     // cy.url().should("include", "sor-fe-staging.herokuapp.com/");
 
     // da molti più errori se si utilizza il codice localhost
-    cy.visit("http://localhost:3005/"); // url da visitare
-    cy.url().should("include", "localhost:3005");
+    //cy.visit("http://localhost:3005/"); // url da visitare
+    //cy.url().should("include", "localhost:3005");
   });
 
   // Chiusura del Banner policy
@@ -19,7 +19,7 @@ describe("HomePage", function () {
   });
   it("Logo Shop-o-rama", function () {
     cy.get('[data-test="LogoLink_Header"]').click({ force: true }); // Logo di Shop-o-rama
-    cy.url().should("include", "localhost:3005");
+    //cy.url().should("include", "localhost:3005");
   });
 
   describe("Root Categories", function () {
@@ -93,10 +93,7 @@ describe("HomePage", function () {
 
 
 describe("Top Banner", function () {
-  beforeEach(() => {
-    cy.visit("http://localhost:3005/");
-    cy.url().should("include", "localhost:3005");
-  });
+
   it("Left Picture", function () {
     cy.get('[data-test="LogoLink_Header"]').click({ force: true });
     cy.get('[data-test="head_header_button_search"]').click({ force: true });
@@ -231,12 +228,6 @@ describe("Sezione 'Apri il tuo negozio'", function () {
     cy.get('[data-test="LogoLink_Header"]').click({ force: true });
     cy.get('[data-test="RibbonCTA__Content"]').click({ force: true });
     cy.url().should("include", "/accedi#registrazione_venditore");
-  });
-  it("Prodotto 3", function () {
-    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
-    cy.get('[data-test="product-list"]')
-      .find('[data-test="ProductsList__2"]')
-      .click({ force: true });
   });
   describe("Iscrizione alla Newsletter", function () {
     it("Iscrivo un utente già registrato", function () {
