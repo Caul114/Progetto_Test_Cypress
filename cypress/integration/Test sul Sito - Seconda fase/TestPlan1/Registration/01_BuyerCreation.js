@@ -47,6 +47,8 @@ describe("Prova Mobile", function () {
         cy.log("Password: " + password);
 
 
+        // Salvo il nuovo utente in un file esterno
+        cy.writeFile('cypress/integration/Test sul Sito - Seconda fase/TestPlan1/Registration/NewBuyer.json', { username: email, passwd: password + "{enter}" })
         // Accesso al sito e registrazione del Buyer
 
         cy.visit("http://localhost:3005/");                                 // url da visitare
