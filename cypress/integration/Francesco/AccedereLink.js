@@ -2,14 +2,14 @@ describe("HomePage", function () {
   it("Visit HomePage", function () {
     //cy.visit("localhost:3005/"); // url da visitare
     //cy.url().should("include", "localhost:3005");
-      cy.visit("https://www.shop-o-rama.it/"); // url da visitare
-      cy.url().should("include", "www.shop-o-rama.it");
+    // cy.visit("https://www.shop-o-rama.it/"); // url da visitare
+    // cy.url().should("include", "www.shop-o-rama.it");
     // cy.visit("https://sor-fe-staging.herokuapp.com/"); // url da visitare
     // cy.url().should("include", "sor-fe-staging.herokuapp.com/");
 
     // da molti più errori se si utilizza il codice localhost
-    //cy.visit("http://localhost:3005/"); // url da visitare
-    //cy.url().should("include", "localhost:3005");
+    cy.visit("http://localhost:3005/"); // url da visitare
+    cy.url().should("include", "localhost:3005");
   });
 
   // Chiusura del Banner policy
@@ -21,75 +21,76 @@ describe("HomePage", function () {
     cy.get('[data-test="LogoLink_Header"]').click({ force: true }); // Logo di Shop-o-rama
     //cy.url().should("include", "localhost:3005");
   });
+});
 
-  describe("Root Categories", function () {
+describe("Root Categories", function () {
+  it("Abbigliamento e Accessori", function () {
     it("Abbigliamento e Accessori", function () {
-      it("Abbigliamento e Accessori", function () {
-        cy.contains("Abbigliamento e accessori").click({ force: true });
-        cy.wait(2000);
-        cy.url().should("include", "/categorie/abbigliamento-e-accessori");
-      })
-    });
+      cy.contains("Abbigliamento e accessori").click({ force: true });
+      cy.wait(2000);
+      cy.url().should("include", "/categorie/abbigliamento-e-accessori");
+    })
+  });
 
 
+  it("Benessere", function () {
     it("Benessere", function () {
-      it("Benessere", function () {
-        cy.contains("Benessere").click({ force: true });
-        cy.wait(2000);
-        cy.url().should("include", "/categorie/benessere");
-      });
-    });
-
-    it("Arredamento", function () {
-      it("Arredamento", function () {
-        cy.contains("Arredamento").click({ force: true });
-        cy.wait(2000);
-        cy.url().should("include", "/categorie/arredamento");
-      });
-    });
-  
-      it("Arte", function () {
-        it("Arte", function () {
-          cy.contains("Arte").click({ force: true });
-          cy.wait(2000);
-          cy.url().should("include", "categorie/arte");
-        });
-      });
-
-
-      it("Infanzia", function () {
-        it("Infanzia", function () {
-          cy.contains("Infanzia").click({ force: true });
-          cy.wait(2000);
-          cy.url().should("include", "/categorie/infanzia");
-        });
-      });
-
-
-      it("Alimentari", function () {
-        it("Alimentari", function () {
-          cy.contains("Alimentari").click({ force: true });
-          cy.wait(2000);
-          cy.url().should("include", "/categorie/alimentari");
-        });
-      });
-
-      it("Magazine", function () {
-        it("Magazine", function () {
-          cy.contains("Magazine").click({ force: true });
-          cy.wait(2000);
-          cy.url().should("include", "/magazine");
-        });
-      });
-      it("Idee Regalo", function () {
-        it("Idee Regalo", function () {
-          cy.contains("Idee Regalo").click({ force: true });
-          cy.wait(2000);
-          cy.url().should("include", "/idee-regalo");
-        });
-      });
+      cy.contains("Benessere").click({ force: true });
+      cy.wait(2000);
+      cy.url().should("include", "/categorie/benessere");
     });
   });
+
+  it("Arredamento", function () {
+    it("Arredamento", function () {
+      cy.contains("Arredamento").click({ force: true });
+      cy.wait(2000);
+      cy.url().should("include", "/categorie/arredamento");
+    });
+  });
+
+  it("Arte", function () {
+    it("Arte", function () {
+      cy.contains("Arte").click({ force: true });
+      cy.wait(2000);
+      cy.url().should("include", "categorie/arte");
+    });
+  });
+
+
+  it("Infanzia", function () {
+    it("Infanzia", function () {
+      cy.contains("Infanzia").click({ force: true });
+      cy.wait(2000);
+      cy.url().should("include", "/categorie/infanzia");
+    });
+  });
+
+
+  it("Alimentari", function () {
+    it("Alimentari", function () {
+      cy.contains("Alimentari").click({ force: true });
+      cy.wait(2000);
+      cy.url().should("include", "/categorie/alimentari");
+    });
+  });
+
+  it("Magazine", function () {
+    it("Magazine", function () {
+      cy.contains("Magazine").click({ force: true });
+      cy.wait(2000);
+      cy.url().should("include", "/magazine");
+    });
+  });
+  it("Idee Regalo", function () {
+    it("Idee Regalo", function () {
+      cy.contains("Idee Regalo").click({ force: true });
+      cy.wait(2000);
+      cy.url().should("include", "/idee-regalo");
+    });
+  });
+});
+
 
 
 describe("Top Banner", function () {
@@ -102,6 +103,7 @@ describe("Top Banner", function () {
   it("Center Picture", function () {
     cy.get('[data-test="LogoLink_Header"]').click({ force: true });
     cy.get('[data-test="button_center_picture"]').click({ force: true });
+    cy.wait(2000);
   });
   // Questo CTA non esiste più
   // it("Right Picture", function () {
@@ -109,6 +111,7 @@ describe("Top Banner", function () {
   //   cy.get('[data-test="right_picture"]').click({ force: true });
   // });
 });
+
 
 
 describe("Products section - Our bestsellers", function () {
@@ -207,18 +210,21 @@ describe("Sezione Magazine", function () {
     cy.get('[data-test="LogoLink_Header"]').click({ force: true });
     cy.get('[data-test="Article__0"]').click({ force: true });
     cy.url().should("include", "magazine/approfondimenti/prova-di-test-01/");
+    cy.wait(2000);
   });
 
   it("Articolo 2", function () {
     cy.get('[data-test="LogoLink_Header"]').click({ force: true });
     cy.get('[data-test="Article__1"]').click({ force: true });
     cy.url().should("include", "magazine/stagionalita/jesus-crist/");
+    cy.wait(2000);
   });
 
   it("Articolo 3", function () {
     cy.get('[data-test="LogoLink_Header"]').click({ force: true });
     cy.get('[data-test="Article__2"]').click({ force: true });
     cy.url().should("include", "magazine");
+    cy.wait(2000);
   });
 });
 
@@ -228,24 +234,28 @@ describe("Sezione 'Apri il tuo negozio'", function () {
     cy.get('[data-test="LogoLink_Header"]').click({ force: true });
     cy.get('[data-test="RibbonCTA__Content"]').click({ force: true });
     cy.url().should("include", "/accedi#registrazione_venditore");
-  });
-  describe("Iscrizione alla Newsletter", function () {
-    it("Iscrivo un utente già registrato", function () {
-      cy.get('[data-test="NewsletterSignup"]')
-        .find('[name="email"]')
-        .type("kenshiro@getnada.com")
-        .should("have.value", "kenshiro@getnada.com");
-
-      cy.get('[type="checkbox"]').check();
-
-      cy.get('[data-test="PolicyModal_Accept"]').click({ force: true });
-
-      cy.get('[data-test="NewsletterSignup__sorForm"]')
-        .submit()
-        .should("contain", "Utente già registrato alla nostra newsletter");
-    });
+    cy.wait(2000);
   });
 });
+
+describe("Iscrizione alla Newsletter", function () {
+  it("Iscrivo un utente già registrato", function () {
+    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+    cy.get('[data-test="NewsletterSignup__sorForm"]')
+      .find('[name="email"]')
+      .type("kenshiro@getnada.com", { force: true })
+      .should("have.value", "kenshiro@getnada.com");
+
+    cy.get('input[name=agree1]').check({ force: true });
+
+    cy.get('[data-test="PolicyModal_Accept"]').click({ force: true });
+
+    // cy.get('[data-test="NewsletterSignup__sorForm"]')
+    //   .submit()
+    //   .should("contain", "Utente già registrato alla nostra newsletter");
+  });
+});
+
 describe("Footer", function () {
   describe("Guadagna con noi", function () {
     it("Vendi su Shop-o-rama", function () {
