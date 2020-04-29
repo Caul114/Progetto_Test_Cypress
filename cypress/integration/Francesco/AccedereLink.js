@@ -302,10 +302,10 @@ describe("Footer", function () {
     });
   });
   it("Condizioni e termini generali", function () {
+    cy.url().should("include", "/condizioni-e-termini-generali");
     cy.get('[data-test="Condizioni e termini generali"]').click({
       force: true
     });
-    cy.url().should("include", "/condizioni-e-termini-generali");
     cy.get('[data-test="LogoLink_Header"]').click({ force: true });
   });
   it("Programma di protezione", function () {
