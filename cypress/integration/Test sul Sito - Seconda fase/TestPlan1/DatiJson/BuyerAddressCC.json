@@ -1,0 +1,29 @@
+{
+    "buyer01": {
+        "buyerAddress": {
+            "firstName": "Gino",
+            "lastName": "Pino",
+            "fullname": "Gino Pino",
+            "address": "via dei Buyers 2",
+            "state": "Italia",
+            "city": "Udine",
+            "province": "UD",
+            "post_code": "33100",
+            "phone": "333123456",
+            "shipping_notes": "CIAO!"
+        },
+        "buyerCC": {
+            "firstName": "Gino",
+            "lastName": "Pino",
+            "fullname": "Gino Pino",
+            "number": "4970104100876596",
+            "password": "MANGOPAY123",
+            "month": "03",
+            "year": "24",
+            "CVV": "123",
+            "birthday": "1",
+            "birthmonth": "01",
+            "birthyear": "1980"
+        }
+    }
+}
