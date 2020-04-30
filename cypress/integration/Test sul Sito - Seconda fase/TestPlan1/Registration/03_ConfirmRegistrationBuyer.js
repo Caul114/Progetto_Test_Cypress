@@ -1,6 +1,6 @@
 it("Confirm GDPR Buyer", function () {
 
-    cy.readFile('cypress/integration/Test sul Sito - Seconda fase/TestPlan1/Registration/NewBuyer.json').then((user) => {
+    cy.readFile('cypress/integration/Test sul Sito - Seconda fase/TestPlan1/DatiJson/NewBuyer.json').then((user) => {
         cy.visit("http://localhost:3005/");                                 // url da visitare
         cy.url().should("include", "localhost:3005");
 
@@ -12,7 +12,7 @@ it("Confirm GDPR Buyer", function () {
             .type(user.username)
 
         cy.get('[data-test="LoginForm"]').find('[data-test="password"]')
-            .type(user.passwd)
+            .type(user.passwd + "{enter}")
         cy.wait(20000);
     })
 
