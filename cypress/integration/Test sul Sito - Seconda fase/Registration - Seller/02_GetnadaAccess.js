@@ -19,7 +19,7 @@ const getIframeBody = () => {
 }
 
 
-describe("Accesso a Getnada.com per confermare la registrazione del Buyer", function () {
+describe("Accesso a Getnada.com per confermare la registrazione del Seller", function () {
 
     var fs = require('fs');
 
