@@ -1,0 +1,32 @@
+{
+    "seller01": {
+        "sellerAddress": {
+            "shopName": "Shop04",
+            "category": "Abbigliamento e Accessori",
+            "first_name": "Iaia",
+            "last_name": "Bottegaia",
+            "fiscal_code": "TBBLCD68A52L322P",
+            "birthday": "1",
+            "birthmonth": "01",
+            "birthyear": "1971",
+            "nationality": "Italia",
+            "business_name": "S.n.c.",
+            "vat_number": "01234567890",
+            "address": "via dei Sellers",
+            "house_number": "01",
+            "city": "Udine",
+            "post_code": "33100",
+            "province": "UD"
+        },
+        "sellerIBAN": {
+            "first_name": "Iaia",
+            "last_name": "Bottegaia",
+            "IBAN": "IT02A0542811101996348416271",
+            "address": "via dei Sellers 01",
+            "city": "Udine",
+            "postcode": "33100",
+            "region": "UD",
+            "country": "Italia"
+        }
+    }
+}
