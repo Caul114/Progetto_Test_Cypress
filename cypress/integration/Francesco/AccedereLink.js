@@ -266,14 +266,12 @@ describe("Footer", function () {
   });
 
   it("Guida per artigiani digitali", function () {
-    cy.get('[data-test="Guida per artigiani digitali"]').click({
-      force: true
-    });
+    cy.get('[data-test="Guida per artigiani digitali"]').click({force: true});
     cy.url().should("include", "/guida-per-artigiani-digitali");
     cy.get('[data-test="LogoLink_Header"]').click({ force: true });
   });
 
-  describe("Piacere di conoscerci", function () {
+
     it("Lavora con noi", function () {
       cy.get('[data-test="Lavora con noi"]').click({ force: true });
       cy.url().should("include", "/lavora-con-noi");
@@ -289,24 +287,18 @@ describe("Footer", function () {
     it("Magazine", function () {
       cy.get('[data-test="Magazine"]').click({ force: true });
       cy.url().should("include", "/magazine");
-      cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+    
     });
   });
   describe("Informazioni", function () {
     it("Condizioni generali di vendita", function () {
-      cy.get('[data-test="Condizioni generali di vendita"]').click({
-        force: true
-      });
+      cy.get('[data-test="Condizioni generali di vendita"]').click({force: true});
       cy.url().should("include", "/condizioni-generali-di-vendita");
-      cy.get('[data-test="LogoLink_Header"]').click({ force: true });
     });
   });
   it("Condizioni e termini generali", function () {
     cy.url().should("include", "/condizioni-e-termini-generali");
-    cy.get('[data-test="Condizioni e termini generali"]').click({
-      force: true
-    });
-    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+    cy.get('[data-test="Condizioni e termini generali"]').click({ force: true});
   });
   it("Programma di protezione", function () {
     cy.get('[data-test="Programma di protezione"]').click({ force: true });
@@ -319,18 +311,17 @@ describe("Footer", function () {
     cy.url().should("include", "/pagamenti");
     cy.get('[data-test="LogoLink_Header"]').click({ force: true });
   });
+
   it("Spedizioni", function () {
     cy.get('[data-test="Spedizioni"]').click({ force: true });
     cy.url().should("include", "/spedizioni");
-    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+  
   });
-});
 
 describe("Bisogno di aiuto?", function () {
   it("Contatti", function () {
     cy.get('[data-test="Contatti"]').click({ force: true });
     cy.url().should("include", "/contatti");
-    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
   });
   it("Guide e tutorials", function () {
     cy.get('[data-test="Guide e tutorials"]').click({ force: true });
@@ -347,18 +338,16 @@ describe("Note legali", function () {
   it("Cookies", function () {
     cy.get('[data-test="cookies"]').click({ force: true });
     cy.url().should("include", "/cookie");
-    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
   });
 
   it("Legale", function () {
     cy.get('[data-test="legale"]').click({ force: true });
     cy.url().should("include", "/legale");
-    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+   
   });
 
   it("Privacy", function () {
     cy.get('[data-test="privacy"]').click({ force: true });
     cy.url().should("include", "/politica-sulla-privacy");
-    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
   });
 });
