@@ -1,7 +1,7 @@
-describe("Prova Mobile", function () {
+describe("Registration test", function () {
 
     // Creazione del Nome
-    it("Buyer Name Creation", function () {
+    it("Seller Name Creation", function () {
 
         function userID_Alpha() {
             var text = "";
@@ -48,43 +48,53 @@ describe("Prova Mobile", function () {
 
 
         // Salvo il nuovo utente in un file esterno
-        cy.writeFile('cypress/integration/Test sul Sito - Seconda fase/TestPlan1/Registration/NewBuyer.json', { username: email, passwd: password + "{enter}" })
-        // Accesso al sito e registrazione del Buyer
+        cy.writeFile('cypress/integration/Test sul Sito - Seconda fase/DatiJson/NewSeller.json', { username: email, passwd: password })
+
+        // Accesso al sito e registrazione del Seller
 
         cy.visit("http://localhost:3005/");                                 // url da visitare
         cy.url().should("include", "localhost:3005");
 
         cy.get('[data-test="close_cookie"]').click({ force: true });        // Chiusura del Banner policy
 
-        cy.contains('Accedi').click({ force: true });                      // Andare nella pagina di Login
+        cy.contains('Accedi').click({ force: true });                       // Andare nella pagina di Login
 
-        cy.get('[data-test="Registrati"]').click({ force: true });             // Accedo al modulo di registrazione
+        cy.get('[data-test="SellerRegistration"]').click({ force: true });  // Accedo al modulo di registrazione
 
-        cy.get('[data-test="first_name"]')
-            .type(firstname);
+        cy.get('[data-test="RegistrationForm"]')
+            .find('[data-test="first_name"]')
+            .type(firstname, { force: true });
 
-        cy.get('[data-test="last_name"]')
-            .type(lastname);
+        cy.get('[data-test="RegistrationForm"]')
+            .find('[data-test="last_name"]')
+            .type(lastname, { force: true });
 
-        cy.get('[data-test="RegistrationFormBuyer"]')
+        cy.get('[data-test="RegistrationForm"]')
             .find('[data-test="email"]')
-            .type(email);
+            .type(email, { force: true });
 
-        cy.get('[data-test="RegistrationFormBuyer"]')
+        cy.get('[data-test="RegistrationForm"]')
+            .find('[data-test="phone"]')
+            .type("3331122333", { force: true });
+
+        cy.get('[data-test="RegistrationForm"]')
             .find('[data-test="password"]')
-            .type(password);
+            .type(password, { force: true });
 
-        cy.get('[data-test="password_confirmation"]')
-            .type(password);
+        cy.get('[data-test="RegistrationForm"]')
+            .find('[data-test="password_confirmation"]')
+            .type(password, { force: true });
 
-        cy.get('[data-test="gdpr_pp"]')
+        cy.get('[data-test="RegistrationForm"]')
+            .find('[data-test="gdpr_pp"]')
             .click({ force: true });
 
-        cy.get('[data-test="gdpr_tc"]')
+        cy.get('[data-test="RegistrationForm"]')
+            .find('[data-test="gdpr_tc"]')
             .click({ force: true });
 
-        cy.get('[data-test="RegistrationFormBuyer"]')
-            .find('[data-test="registration_button"]')
+        cy.get('[data-test="RegistrationForm"]')
+            .find('[data-test="send_registration"]')
             .click({ force: true });
 
         // cy.wait(2000);

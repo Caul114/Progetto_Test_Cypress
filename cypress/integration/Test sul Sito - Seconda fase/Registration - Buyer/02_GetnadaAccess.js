@@ -1,6 +1,6 @@
 
 // Con questi metodi aggiro il problema del iframe che Cypress non riesce a visitare direttamente
-// Creando queste funzioni, quando si tratterà ci caricare l'iframe della mail salvata su getnada si riuscirà ad accedere al suo DOM 
+// Creando queste funzioni, quando si tratterà di caricare l'iframe della mail salvata su getnada.com si riuscirà ad accedere al suo DOM 
 
 const getIframeDocument = () => {
     return cy
