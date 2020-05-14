@@ -303,14 +303,15 @@ describe("Footer", function () {
   it("Programma di protezione", function () {
     cy.get('[data-test="Programma di protezione"]').click({ force: true });
     cy.url().should("include", "/programma-di-protezione");
-
+    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
   });
 
   it("Pagamenti", function () {
     cy.get('[data-test="Pagamenti"]').click({ force: true });
     cy.url().should("include", "/pagamenti");
-  
+    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
   });
+
   it("Spedizioni", function () {
     cy.get('[data-test="Spedizioni"]').click({ force: true });
     cy.url().should("include", "/spedizioni");
