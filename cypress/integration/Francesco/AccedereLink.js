@@ -321,6 +321,7 @@ describe("Footer", function () {
 describe("Bisogno di aiuto?", function () {
   it("Contatti", function () {
     cy.get('[data-test="Contatti"]').click({ force: true });
+    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
     cy.url().should("include", "/contatti");
   });
   it("Guide e tutorials", function () {
