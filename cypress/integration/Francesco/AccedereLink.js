@@ -90,9 +90,6 @@ describe("Root Categories", function () {
     });
   });
 });
-
-
-
 describe("Top Banner", function () {
 
   it("Left Picture", function () {
