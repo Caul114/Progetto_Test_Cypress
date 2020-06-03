@@ -326,12 +326,24 @@ describe("Footer", function () {
     });
   });
 
-  describe("Footer logo Shop-o-rama", function () {
-    it("Footer logo Shop-o-rama", function () {
-      cy.get('[data-test="homepage di Shop-o-rama"]').click({ force: true });
+  describe("Note legali", function () {
+    it("Cookies", function () {
+      cy.get('[data-test="cookies"]').click({ force: true });
+      cy.url().should("include", "/cookie");
+    });
+
+    it("Privacy", function () {
+      cy.get('[data-test="privacy"]').click({ force: true });
+      cy.url().should("include", "/politica-sulla-privacy");
     });
   });
+});
 
+
+describe("Footer logo Shop-o-rama", function () {
+  it("Footer logo Shop-o-rama", function () {
+    cy.get('[data-test="homepage di Shop-o-rama"]').click({ force: true });
+  });
   describe("Note legali", function () {
     it("Cookies", function () {
       cy.get('[data-test="cookies"]').click({ force: true });
@@ -349,67 +361,5 @@ describe("Footer", function () {
       cy.get('[data-test="copyright"]').click({ force: true });
     });
   });
-});
 
-  describe("Informazioni", function () {
-    it("Condizioni generali di vendita", function () {
-      cy.get('[data-test="Condizioni generali di vendita"]').click({force: true});
-      cy.url().should("include", "/condizioni-generali-di-vendita");
-    });
-  });
-  it("Condizioni e termini generali", function () {
-    cy.url().should("include", "/condizioni-e-termini-generali");
-    cy.get('[data-test="Condizioni e termini generali"]').click({ force: true});
-  });
-  it("Programma di protezione", function () {
-    cy.get('[data-test="Programma di protezione"]').click({ force: true });
-    cy.url().should("include", "/programma-di-protezione");
-    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
-  });
-
-  it("Pagamenti", function () {
-    cy.get('[data-test="Pagamenti"]').click({ force: true });
-    cy.url().should("include", "/pagamenti");
-    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
-  });
-
-  it("Spedizioni", function () {
-    cy.get('[data-test="Spedizioni"]').click({ force: true });
-    cy.url().should("include", "/spedizioni");
-  
-  });
-
-describe("Bisogno di aiuto?", function () {
-  it("Contatti", function () {
-    cy.get('[data-test="Contatti"]').click({ force: true });
-    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
-    cy.url().should("include", "/contatti");
-  });
-  it("Guide e tutorials", function () {
-    cy.get('[data-test="Guide e tutorials"]').click({ force: true });
-    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
-  });
-});
-
-describe("Footer logo Shop-o-rama", function () {
-  it("Footer logo Shop-o-rama", function () {
-    cy.get('[data-test="homepage di Shop-o-rama"]').click({ force: true });
-  });
-});
-describe("Note legali", function () {
-  it("Cookies", function () {
-    cy.get('[data-test="cookies"]').click({ force: true });
-    cy.url().should("include", "/cookie");
-  });
-
-  it("Privacy", function () {
-    cy.get('[data-test="privacy"]').click({ force: true });
-    cy.url().should("include", "/politica-sulla-privacy");
-  });
-});
-
-describe("Ultimo link", function () {
-  it("Copyright", function () {
-    cy.get('[data-test="copyright"]').click({ force: true });
-  });
 });
