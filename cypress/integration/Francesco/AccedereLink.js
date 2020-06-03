@@ -402,14 +402,14 @@ describe("Note legali", function () {
     cy.url().should("include", "/cookie");
   });
 
-  it("Legale", function () {
-    cy.get('[data-test="legale"]').click({ force: true });
-    cy.url().should("include", "/legale");
-   
-  });
-
   it("Privacy", function () {
     cy.get('[data-test="privacy"]').click({ force: true });
     cy.url().should("include", "/politica-sulla-privacy");
+  });
+});
+
+describe("Ultimo link", function () {
+  it("Copyright", function () {
+    cy.get('[data-test="copyright"]').click({ force: true });
   });
 });
