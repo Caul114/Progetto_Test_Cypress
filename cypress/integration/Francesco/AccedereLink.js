@@ -90,9 +90,6 @@ describe("Root Categories", function () {
     });
   });
 });
-
-
-
 describe("Top Banner", function () {
 
   it("Left Picture", function () {
@@ -256,98 +253,113 @@ describe("Iscrizione alla Newsletter", function () {
   });
 });
 
+
 describe("Footer", function () {
+  beforeEach(() => {
+    cy.visit("http://localhost:3005/"); // indirizzo a cui tornare sempre      
+  });
+
   describe("Guadagna con noi", function () {
     it("Vendi su Shop-o-rama", function () {
       cy.get('[data-test="Vendi su Shop-o-rama"]').click({ force: true });
       cy.url().should("include", "/vendi-su-shoporama");
-      cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+    });
+
+    it("Guida per artigiani digitali", function () {
+      cy.get('[data-test="Guida per artigiani digitali"]').click({ force: true });
+      cy.url().should("include", "/guida-per-artigiani-digitali");
     });
   });
 
-  it("Guida per artigiani digitali", function () {
-    cy.get('[data-test="Guida per artigiani digitali"]').click({force: true});
-    cy.url().should("include", "/guida-per-artigiani-digitali");
-    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
-  });
-
-
+  describe("Piacere di conoscerci", function () {
     it("Lavora con noi", function () {
       cy.get('[data-test="Lavora con noi"]').click({ force: true });
       cy.url().should("include", "/lavora-con-noi");
-      cy.get('[data-test="LogoLink_Header"]').click({ force: true });
     });
 
     it("Chi siamo", function () {
       cy.get('[data-test="Chi siamo"]').click({ force: true });
       cy.url().should("include", "/chi-siamo");
-      cy.get('[data-test="LogoLink_Header"]').click({ force: true });
     });
 
     it("Magazine", function () {
       cy.get('[data-test="Magazine"]').click({ force: true });
       cy.url().should("include", "/magazine");
-    
     });
   });
+
   describe("Informazioni", function () {
     it("Condizioni generali di vendita", function () {
-      cy.get('[data-test="Condizioni generali di vendita"]').click({force: true});
+      cy.get('[data-test="Condizioni generali di vendita"]').click({ force: true });
       cy.url().should("include", "/condizioni-generali-di-vendita");
     });
-  });
-  it("Condizioni e termini generali", function () {
-    cy.url().should("include", "/condizioni-e-termini-generali");
-    cy.get('[data-test="Condizioni e termini generali"]').click({ force: true});
-  });
-  it("Programma di protezione", function () {
-    cy.get('[data-test="Programma di protezione"]').click({ force: true });
-    cy.url().should("include", "/programma-di-protezione");
-    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+
+    it("Condizioni e termini generali", function () {
+      cy.get('[data-test="Condizioni e termini generali"]').click({ force: true });
+      cy.url().should("include", "/condizioni-e-termini-generali");
+    });
+
+    it("Programma di protezione", function () {
+      cy.get('[data-test="Programma di protezione"]').click({ force: true });
+      cy.url().should("include", "/programma-di-protezione");
+    });
+
+    it("Pagamenti", function () {
+      cy.get('[data-test="Pagamenti"]').click({ force: true });
+      cy.url().should("include", "/pagamenti");
+    });
+
+    it("Spedizioni", function () {
+      cy.get('[data-test="Spedizioni"]').click({ force: true });
+      cy.url().should("include", "/spedizioni");
+    });
   });
 
-  it("Pagamenti", function () {
-    cy.get('[data-test="Pagamenti"]').click({ force: true });
-    cy.url().should("include", "/pagamenti");
-    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+  describe("Bisogno di aiuto?", function () {
+    it("Contatti", function () {
+      cy.get('[data-test="Contatti"]').click({ force: true });
+      cy.url().should("include", "/contatti");
+    });
+
+    it("Guide e tutorials", function () {
+      cy.get('[data-test="Guide e tutorials"]').click({ force: true });
+    });
   });
 
-  it("Spedizioni", function () {
-    cy.get('[data-test="Spedizioni"]').click({ force: true });
-    cy.url().should("include", "/spedizioni");
-  
-  });
+  describe("Note legali", function () {
+    it("Cookies", function () {
+      cy.get('[data-test="cookies"]').click({ force: true });
+      cy.url().should("include", "/cookie");
+    });
 
-describe("Bisogno di aiuto?", function () {
-  it("Contatti", function () {
-    cy.get('[data-test="Contatti"]').click({ force: true });
-    cy.url().should("include", "/contatti");
-  });
-  it("Guide e tutorials", function () {
-    cy.get('[data-test="Guide e tutorials"]').click({ force: true });
-    cy.get('[data-test="LogoLink_Header"]').click({ force: true });
+    it("Privacy", function () {
+      cy.get('[data-test="privacy"]').click({ force: true });
+      cy.url().should("include", "/politica-sulla-privacy");
+    });
   });
 });
+
 
 describe("Footer logo Shop-o-rama", function () {
   it("Footer logo Shop-o-rama", function () {
     cy.get('[data-test="homepage di Shop-o-rama"]').click({ force: true });
   });
-});
-describe("Note legali", function () {
-  it("Cookies", function () {
-    cy.get('[data-test="cookies"]').click({ force: true });
-    cy.url().should("include", "/cookie");
+  describe("Note legali", function () {
+    it("Cookies", function () {
+      cy.get('[data-test="cookies"]').click({ force: true });
+      cy.url().should("include", "/cookie");
+    });
+
+    it("Privacy", function () {
+      cy.get('[data-test="privacy"]').click({ force: true });
+      cy.url().should("include", "/politica-sulla-privacy");
+    });
   });
 
-  it("Legale", function () {
-    cy.get('[data-test="legale"]').click({ force: true });
-    cy.url().should("include", "/legale");
-   
+  describe("Ultimo link", function () {
+    it("Copyright", function () {
+      cy.get('[data-test="copyright"]').click({ force: true });
+    });
   });
 
-  it("Privacy", function () {
-    cy.get('[data-test="privacy"]').click({ force: true });
-    cy.url().should("include", "/politica-sulla-privacy");
-  });
 });
