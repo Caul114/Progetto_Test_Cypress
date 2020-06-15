@@ -110,6 +110,18 @@ describe("Top Banner", function () {
 });
 
 
+describe("New Product", function() {
+  beforeEach(()=>{
+    cy.visit("/");
+    cy.url().should("include", "localhost:3005");
+    cy.wait(2000); 
+  });
+  it("Product_Center_1", function(){
+    cy.get('[data-test="featured-product_center"]')
+    .find('[data-test="ProductsList _Products"]')
+    .find('[data-test="ProductsList_center_0 order-1"]')
+  })
+})
 
 describe("Products section - Our bestsellers", function () {
   beforeEach(() => {
