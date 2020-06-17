@@ -140,6 +140,24 @@ describe("New Product", function() {
     .find('[data-test="ProductsList_center_0 order-4"]')
     .click({ force: true });
   })
+  it("Product_Center_5", function(){
+    cy.get('[data-test="featured-product-center"]')
+    .find('[data-test="ProductsList _Products"]')
+    .find('[data-test="ProductsList_center_0 order-5"]')
+    .click({ force: true });
+  })
+  it("Product_Center_6", function(){
+    cy.get('[data-test="featured-product-center"]')
+    .find('[data-test="ProductsList _Products"]')
+    .find('[data-test="ProductsList_center_0 order-6"]')
+    .click({ force: true });
+  })
+  it("Product_Center_7", function(){
+    cy.get('[data-test="featured-product-center"]')
+    .find('[data-test="ProductsList _Products"]')
+    .find('[data-test="ProductsList_center_0 order-7"]')
+    .click({ force: true });
+  })
 })
 
 describe("Products section - Our bestsellers", function () {
