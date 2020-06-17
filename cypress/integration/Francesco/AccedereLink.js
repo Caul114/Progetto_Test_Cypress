@@ -120,6 +120,13 @@ describe("New Product", function() {
     cy.get('[data-test="featured-product_center"]')
     .find('[data-test="ProductsList _Products"]')
     .find('[data-test="ProductsList_center_0 order-1"]')
+    .click({ force: true });
+  })
+  it("Product_Center_2", function(){
+    cy.get('[data-test="featured-product-center"]')
+    .find('[data-test="ProductsList _Products"]')
+    .find('[data-test="ProductsList_center_0 order-2"]')
+    .click({ force: true });
   })
 })
 
